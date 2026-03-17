@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcotrailPilar · Aventura y naturaleza</title>
+    <!-- Fuentes modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0a1f44; /* azul oscuro lujoso */
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            font-weight: 400;
+            color: #5b6b7c;
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #1a2b4c; /* azul oscuro */
+        }
+        .whatsapp-header {
+            background: #25D366;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .whatsapp-header:hover {
+            background: #20b859;
+        }
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #e1eaf2 0%, #ffffff 100%); /* azul muy claro */
+            padding: 60px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0b1a33; /* azul oscuro profundo */
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #334155;
+            margin-bottom: 30px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: #1a2b4c; /* azul oscuro principal */
+            color: white;
+            box-shadow: 0 8px 16px -6px rgba(26,43,76,0.3);
+        }
+        .btn-primary:hover {
+            background: #0f1a2f; /* más oscuro */
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #1a2b4c;
+            border: 2px solid #1a2b4c;
+        }
+        .btn-outline:hover {
+            background: #e6ecf5; /* azul muy claro */
+        }
+        .hero-image {
+            background: #d4dee8; /* azul grisáceo */
+            border-radius: 24px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e5c;
+            font-size: 1.2rem;
+            border: 2px dashed #a0b3cc;
+        }
+        /* Secciones generales */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid #eaeef2;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0b1a33; /* azul profundo */
+        }
+        .section-sub {
+            color: #475569;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 48px;
+        }
+        /* Tarjetas de productos */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 12px 30px -8px rgba(0,0,0,0.08);
+            transition: 0.2s;
+            border: 1px solid #edf2f7;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px -12px rgba(26,43,76,0.15);
+        }
+        .product-img {
+            width: 100%;
+            height: 160px;
+            background: #cbd5e1;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b5563;
+            font-size: 1rem;
+            border: 2px dashed #9ca3af;
+        }
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0b1a33; /* azul profundo */
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a2b4c; /* azul oscuro principal */
+            margin-bottom: 16px;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 16px 0 12px;
+        }
+        .btn-compra {
+            background: #1a2b4c; /* azul oscuro */
+            color: white;
+            padding: 14px 16px;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.2s, transform 0.1s;
+            display: block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-compra:hover {
+            background: #0f1a2f;
+            transform: scale(1.02);
+        }
+        .btn-compra i {
+            margin-left: 8px;
+        }
+        .btn-ml {
+            background: #FFE600; /* amarillo MercadoLibre se mantiene */
+            color: #000;
+            padding: 14px 16px;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.2s, transform 0.1s;
+            display: block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-ml:hover {
+            background: #f2d600;
+            transform: scale(1.02);
+        }
+        .btn-ml i {
+            margin-right: 8px;
+        }
+        .guarantee-badge {
+            display: inline-block;
+            background: #fef9c3;
+            color: #854d0e;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 60px;
+            margin-top: 8px;
+            align-self: flex-start;
+        }
+        .badge-new {
+            background: #dc2626;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 60px;
+            text-transform: uppercase;
+        }
+        /* Sección sobre nosotros */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #334155;
+        }
+        .about-image {
+            background: #c9d6e6; /* azul grisáceo */
+            border-radius: 30px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #6f7e9c;
+        }
+        /* historia */
+        .history-block {
+            background: #eef2f7; /* azul muy claro */
+            border-radius: 40px;
+            padding: 48px;
+            margin-top: 20px;
+        }
+        .history-block p {
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+        /* Footer */
+        footer {
+            background: #0f1a2f; /* azul muy oscuro */
+            color: #cbd5e1;
+            padding: 48px 0;
+            text-align: center;
+        }
+        .footer-wa {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 16px 0;
+        }
+        .footer-wa i {
+            color: #25D366;
+            margin-right: 8px;
+        }
+        .small {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>ECOTRAILPILAR <span>aventura y naturaleza</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#venta">Catálogo</a>
+            <a href="#sobre-nosotros">Sobre nosotros</a>
+            <a href="#historia">Historia</a>
+        </div>
+        <a href="https://wa.me/5491159484880" class="whatsapp-header" target="_blank">
+            <i class="fab fa-whatsapp"></i> 11 5948-4880
+        </a>
+    </div>
+</header>
+
+<main>
+    <!-- HERO / INICIO -->
+    <section id="inicio" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <h2>Moviendo pequeñas grandes cosas</h2>
+                <p>Encontra el mejor compañero para tu bici, sea cual sea tu actividad. Estamos listos para cualquier desafio.</p>
+                <div class="hero-buttons">
+                    <a href="#venta" class="btn btn-primary">Ver catálogo</a>
+                    <a href="#sobre-nosotros" class="btn btn-outline">Conocenos</a>
+                </div>
+                <div style="margin-top: 30px;">
+                    <span class="guarantee-badge"><i class="fas fa-shield-alt"></i> Garantía de fábrica · Precio directo</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-mountain" style="font-size: 4rem; opacity: 0.5; margin-right: 10px;"></i> Imagen de aventura
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DE TRAILERS -->
+    <section id="venta" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros trailers para bicicleta</h2>
+            <p class="section-sub">Somos fabricantes, resistencia garantizada. Elegí comprar directo o por MercadoLibre.</p>
+           
+            <div class="cards-grid">
+                <!-- MODELO URBANO -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-bicycle" style="font-size: 3rem; opacity: 0.6;"></i> 
+                        <span style="margin-left: 10px;">Urbano</span>
+                    </div>
+                    <h3 class="product-title">MODELO URBANO</h3>
+                    <div class="product-price">$390.000</div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/url?q=https%3A%2F%2Fecotrail.mitiendanube.com%2Fproductos%2Ftrailer-para-bicicleta-clasico-refozado-ecotrailpilar%2F&sa=D&sntz=1&usg=AOvVaw3oXbBm4sAnp5XOlQQCuiim" target="_blank" class="btn-compra">
+                            ¡Compra directo! <i class="fas fa-store"></i>
+                        </a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402?pdp_filters=item_id%3AMLA1965114574&matt_tool=89488245#origin=share&sid=share&wid=MLA1965114574" target="_blank" class="btn-ml">
+                            <i class="fab fa-mercadopago"></i> MercadoLibre
+                        </a>
+                    </div>
+                    <span class="guarantee-badge"><i class="fas fa-truck"></i> Envío a todo el país</span>
+                </div>
+
+                <!-- MODELO ENREJADO -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-bicycle" style="font-size: 3rem; opacity: 0.6;"></i> 
+                        <span style="margin-left: 10px;">Enrejado</span>
+                    </div>
+                    <h3 class="product-title">MODELO ENREJADO</h3>
+                    <div class="product-price">$350.000</div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/url?q=https%3A%2F%2Fecotrail.mitiendanube.com%2Fproductos%2Ftrailer-remolque-bicicleta-utilitario-reforzado-nacional%2F&sa=D&sntz=1&usg=AOvVaw2f3DB7rAH5Khv0y3nAWE-v" target="_blank" class="btn-compra">
+                            ¡Compra directo! <i class="fas fa-store"></i>
+                        </a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041?pdp_filters=item_id%3AMLA1467933913&matt_tool=89488245#origin=share&sid=share&wid=MLA1467933913" target="_blank" class="btn-ml">
+                            <i class="fab fa-mercadopago"></i> MercadoLibre
+                        </a>
+                    </div>
+                    <span class="guarantee-badge"><i class="fas fa-shield-alt"></i> Reforzado</span>
+                </div>
+
+                <!-- MODELO PLAYO XL -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-bicycle" style="font-size: 3rem; opacity: 0.6;"></i> 
+                        <span style="margin-left: 10px;">Playo XL</span>
+                    </div>
+                    <h3 class="product-title">MODELO PLAYO XL</h3>
+                    <div class="product-price">$250.000</div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/url?q=https%3A%2F%2Fecotrail.mitiendanube.com%2Fproductos%2Ftrailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar%2F&sa=D&sntz=1&usg=AOvVaw3fDLzPKNxBfE-qkBhsP--g" target="_blank" class="btn-compra">
+                            ¡Compra directo! <i class="fas fa-store"></i>
+                        </a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215?pdp_filters=item_id%3AMLA1517484051&matt_tool=89488245#origin=share&sid=share&wid=MLA1517484051" target="_blank" class="btn-ml">
+                            <i class="fab fa-mercadopago"></i> MercadoLibre
+                        </a>
+                    </div>
+                    <span class="guarantee-badge"><i class="fas fa-water"></i> Ideal para playa</span>
+                </div>
+
+                <!-- MODELO PESCADOR (NUEVO) -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-fish" style="font-size: 3rem; opacity: 0.6;"></i> 
+                        <span style="margin-left: 10px;">Pescador</span>
+                    </div>
+                    <h3 class="product-title">
+                        MODELO PESCADOR 
+                        <span class="badge-new">Nuevo</span>
+                    </h3>
+                    <div class="product-price">$350.000</div>
+                    <div class="btn-group">
+                        <a href="https://www.google.com/url?q=https%3A%2F%2Fecotrail.mitiendanube.com%2Fproductos%2Fcarrito-trailer-para-bicicleta-de-carga-pesca-playa-80kg%2F&sa=D&sntz=1&usg=AOvVaw3h-IUviVe7jzYwIV4CASPG" target="_blank" class="btn-compra">
+                            ¡Compra directo! <i class="fas fa-store"></i>
+                        </a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224?pdp_filters=item_id%3AMLA1648426061&matt_tool=89488245#origin=share&sid=share&wid=MLA1648426061" target="_blank" class="btn-ml">
+                            <i class="fab fa-mercadopago"></i> MercadoLibre
+                        </a>
+                    </div>
+                    <span class="guarantee-badge"><i class="fas fa-weight-hanging"></i> 80kg de carga</span>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px;">
+                <a href="https://ecotrail.mitiendanube.com" target="_blank" class="btn btn-outline" style="font-size: 1.1rem;">
+                    Ver todos los productos <i class="fas fa-arrow-right"></i>
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre-nosotros" class="section" style="background-color: #edf2f9;"> <!-- fondo azul muy claro -->
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2 class="section-title">Sobre EcotrailPilar</h2>
+                <p><strong>Ofrecemos soluciones integrales de movilidad urbana.</strong> Desde Pilar, acercamos a aventureros y emprendedores los mejores trailer con relación calidad-precio inigualable.</p>
+                <p>Trabajamos directamente con proveedores nacionales para ofrecerte productos duraderos sin pagar de más, con la tranquilidad que solo un producto Argentino te puede brindar. Nuestra misión: que nada te frene a la hora de moverte.</p>
+                <p><i class="fas fa-map-pin" style="color: #1a2b4c;"></i> Desde Pilar, Buenos Aires — enviamos a todo el país.</p>
+                <div style="margin-top: 25px;">
+                    <span class="guarantee-badge" style="background: #e0e9ff; color: #1a2b4c;"><i class="fas fa-leaf"></i> +5 años equipando aventuras</span>
+                </div>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-tree" style="font-size: 5rem; opacity: 0.5;"></i>  foto del equipo / local
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORIA -->
+    <section id="historia" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestra historia</h2>
+            <div class="history-block">
+                <p><i class="fas fa-quote-left" style="color: #1a2b4c; font-size: 2rem; opacity: 0.5; margin-right: 8px;"></i> Nos dimos cuenta que nuestras bicis necesitaban un accesorio ideal para movernos de un modo más eficiente y liviano.</p>
+                <p><strong>EcotrailPilar nació en 2020 como un emprendimiento familiar. Hoy, nos dedicamos a fabricar tráileres de carga para bicicletas, ofreciendo soluciones de micromovilidad sustentable con la durabilidad de un producto nacional. Seguimos creciendo con la misma pasión: conocer cada producto, recomendar con honestidad y garantizar tu satisfacción.</p>
+                <p style="margin-bottom: 0;">Hoy, además de nuestra tienda online, podes encontrarnos en Mercado Libre. ¡Gracias por ser parte de este sendero!</p>
+                <div style="margin-top: 30px;">
+                    <span style="background: white; padding: 8px 24px; border-radius: 60px; font-weight: 600;">¡Eficiencia y durabilidad aseguradas!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div style="margin-bottom: 20px;">
+            <i class="fas fa-mountain" style="font-size: 2.5rem; color: #a0b3cc;"></i>
+        </div>
+        <h3 style="color: white; font-size: 1.8rem; margin-bottom: 16px;">ECOTRAILPILAR</h3>
+        <div class="footer-wa">
+            <i class="fab fa-whatsapp"></i> 11 5948-4880
+        </div>
+        <p style="margin-bottom: 16px;">
+            <a href="#" style="color: #a0b3cc; text-decoration: none; margin: 0 10px;">Términos</a> |
+            <a href="#" style="color: #a0b3cc; text-decoration: none; margin: 0 10px;">Envíos</a> |
+            <a href="#" style="color: #a0b3cc; text-decoration: none; margin: 0 10px;">Contacto</a>
+        </p>
+        <p class="small">© 2025 EcotrailPilar · Precio de fábrica, garantía de por vida en todos nuestros productos.</p>
+        <p class="small" style="margin-top: 16px;">🇦🇷 Hecho con 🌿 para los aventureros de Pilar y Argentina.</p>
+    </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<div style="position: fixed; bottom: 30px; right: 30px; z-index: 100;">
+    <a href="https://wa.me/5491159484880" target="_blank" style="background: #25D366; color: white; padding: 18px 22px; border-radius: 60px; font-size: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-decoration: none; display: flex; align-items: center; gap: 8px;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+</body>
+</html>
+</html>
