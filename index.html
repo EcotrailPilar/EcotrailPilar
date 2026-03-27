@@ -1,697 +1,967 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ecotrail Pilar · Trailers para Bicicleta de Alta Resistencia</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>EcotrailPilar · Trailers para Bicicleta de Alta Resistencia</title>
+    <meta name="description" content="EcotrailPilar: tráileres para bicicleta fabricados en Argentina. Carga pesada hasta 160kg, enganche universal y estructura industrial. Envíos a todo el país.">
+    <meta name="keywords" content="trailer bicicleta, carro carga bicicleta, remolque bici, EcotrailPilar, trailer utilitario">
+    <meta name="author" content="EcotrailPilar">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
-
-            --primary: #0a1128; /* Azul noche industrial */
-
-            --accent: #f59e0b; /* Ambar técnico */
-
-            --text-main: #1e293b;
-
-            --text-muted: #64748b;
-
+            --primary: #0a1128;
+            --accent: #f59e0b;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
             --bg-light: #f8fafc;
-
-            --bg-white: #ffffff;
-
+            --white: #ffffff;
             --border: #e2e8f0;
-
-            --ml-yellow: #FFE600;
-
-            --wa-green: #25D366;
-
-            --radius: 8px;
-
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
+            --ml-yellow: #ffe600;
+            --wa-green: #25d366;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+            --transition: all 0.2s ease;
         }
 
-
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
 
         body {
-
             font-family: 'Inter', sans-serif;
-
-            color: var(--text-main);
-
-            background-color: var(--bg-white);
-
-            line-height: 1.6;
-
-            -webkit-font-smoothing: antialiased;
-
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.5;
+            overflow-x: hidden;
         }
 
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
 
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .section-padding {
+            padding: 5rem 0;
+        }
 
-        
+        .bg-light {
+            background-color: var(--bg-light);
+        }
 
-        /* --- UTILIDADES --- */
-
-        .text-center { text-align: center; }
-
-        .section-padding { padding: 100px 0; }
-
-        .bg-light { background-color: var(--bg-light); }
-
-        .bg-dark { background-color: var(--primary); color: white; }
-
-        
-
-        h1, h2, h3, h4 { letter-spacing: -0.03em; line-height: 1.2; }
-
-        
-
-        /* --- BOTONES --- */
-
+        /* Botones */
         .btn {
-
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-
-            padding: 16px 28px; border-radius: var(--radius); font-weight: 700;
-
-            text-decoration: none; transition: var(--transition); border: 2px solid transparent;
-
-            cursor: pointer; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;
-
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+            touch-action: manipulation;
         }
 
-        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
 
-        .btn-primary:hover { background: #000; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transform: translateY(-2px); }
+        .btn-primary:hover {
+            background-color: #000000;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
 
-        .btn-accent { background: var(--accent); color: #000; }
+        .btn-ml {
+            background-color: var(--ml-yellow);
+            color: #000;
+            width: 100%;
+            justify-content: center;
+        }
 
-        .btn-accent:hover { background: #fbbf24; transform: translateY(-2px); }
+        .btn-ml:hover {
+            background-color: #facc15;
+            transform: scale(0.98);
+        }
 
-        .btn-ml { background: var(--ml-yellow); color: #000; width: 100%; }
+        .btn-outline {
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dark);
+        }
 
-        .btn-ml:hover { background: #facc15; }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(10, 17, 40, 0.02);
+        }
 
-        .btn-outline { border-color: var(--border); color: var(--text-main); }
-
-        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
-
-
-
-        /* --- HEADER --- */
-
+        /* Header y navegación */
         header {
-
-            border-bottom: 1px solid var(--border); background: var(--bg-white);
-
-            position: sticky; top: 0; z-index: 100; padding: 20px 0;
-
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
         }
 
-        .header-content { display: flex; justify-content: space-between; align-items: center; }
-
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); letter-spacing: -0.05em; text-decoration: none; }
-
-        .logo span { color: var(--accent); }
-
-        .nav-links { display: flex; gap: 32px; font-weight: 600; font-size: 0.95rem; }
-
-        .nav-links a { color: var(--text-muted); text-decoration: none; transition: var(--transition); }
-
-        .nav-links a:hover { color: var(--primary); }
-
-
-
-        /* --- HERO --- */
-
-        .hero { padding: 80px 0 60px; }
-
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-
-        .hero-text h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900; margin-bottom: 24px; color: var(--primary); }
-
-        .hero-text p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; max-width: 500px; }
-
-        .hero-image { aspect-ratio: 4/3; background: var(--bg-light); border-radius: 12px; overflow: hidden; position: relative; }
-
-        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
-
-        
-
-        /* --- TRUST BAR (Prueba Social Rápida) --- */
-
-        .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 30px 0; background: #fff; }
-
-        .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-
-        .trust-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-
-        .trust-item i { font-size: 1.5rem; color: var(--accent); }
-
-        .trust-item span { font-weight: 600; font-size: 0.9rem; color: var(--primary); }
-
-
-
-        /* --- BENEFICIOS (Specs Técnicas) --- */
-
-        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
-
-        .benefit-card { padding: 40px 30px; background: white; border: 1px solid var(--border); border-radius: var(--radius); transition: var(--transition); }
-
-        .benefit-card:hover { border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-
-        .benefit-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-
-        .benefit-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-
-        .benefit-card p { color: var(--text-muted); font-size: 0.95rem; }
-
-
-
-        /* --- CATÁLOGO --- */
-
-        .section-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
-
-        .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 16px; }
-
-        .section-header p { color: var(--text-muted); font-size: 1.1rem; }
-
-
-
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-
-        .product-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; position: relative; }
-
-        .badge-new { position: absolute; top: 12px; right: 12px; background: #ef4444; color: white; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
-
-        .product-img-ph { height: 200px; background: var(--bg-light); border-radius: 6px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; }
-
-        .product-img-ph i { font-size: 3rem; color: var(--text-muted); opacity: 0.3; }
-
-        
-
-        .product-info h3 { font-size: 1.4rem; margin-bottom: 8px; }
-
-        .product-price { font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 20px; }
-
-        
-
-        .product-specs { list-style: none; margin-bottom: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
-
-        .product-specs li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
-
-        .product-specs i { color: var(--accent); width: 16px; }
-
-
-
-        .product-actions { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
-
-
-
-        /* --- TESTIMONIOS --- */
-
-        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-
-        .review-card { background: var(--bg-white); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border); }
-
-        .stars { color: var(--accent); margin-bottom: 15px; font-size: 0.9rem; }
-
-        .review-text { font-style: italic; color: var(--text-main); margin-bottom: 20px; }
-
-        .review-author { font-weight: 700; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; }
-
-
-
-        /* --- FAQ (Acordeón) --- */
-
-        .faq-container { max-width: 800px; margin: 0 auto; }
-
-        details { background: white; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; overflow: hidden; }
-
-        summary { padding: 20px 24px; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-
-        summary::-webkit-details-marker { display: none; }
-
-        summary:after { content: '\f067'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--text-muted); transition: transform 0.3s; }
-
-        details[open] summary:after { transform: rotate(45deg); }
-
-        .faq-content { padding: 0 24px 24px; color: var(--text-muted); }
-
-
-
-        /* --- FOOTER --- */
-
-        footer { padding: 80px 0 40px; border-top: 1px solid #1e293b; }
-
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
-
-        .footer-col h4 { color: white; font-size: 1.2rem; margin-bottom: 20px; }
-
-        .footer-col p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 16px; }
-
-        .footer-links { list-style: none; }
-
-        .footer-links li { margin-bottom: 12px; }
-
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: var(--transition); }
-
-        .footer-links a:hover { color: white; }
-
-        .footer-bottom { text-align: center; border-top: 1px solid #1e293b; padding-top: 30px; color: #64748b; font-size: 0.85rem; }
-
-
-
-        /* --- FAB --- */
-
-        .fab-wa { position: fixed; bottom: 30px; right: 30px; background: var(--wa-green); color: white; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 10px 25px rgba(37,211,102,0.3); z-index: 999; transition: var(--transition); text-decoration: none; }
-
-        .fab-wa:hover { transform: scale(1.1) rotate(-5deg); }
-
-
-
-        /* --- RESPONSIVE --- */
-
-        @media (max-width: 992px) {
-
-            .hero-grid, .benefits-grid, .reviews-grid { grid-template-columns: 1fr; gap: 40px; }
-
-            .trust-grid { grid-template-columns: 1fr 1fr; }
-
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .logo-highlight {
+            color: var(--accent);
+            letter-spacing: 0.01em;
+            text-shadow: 0 1px 2px rgba(245, 158, 11, 0.2);
+            font-weight: 900;
+        }
+
+        /* Navegación escritorio */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Menú hamburguesa (mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 0.5rem;
+            touch-action: manipulation;
         }
 
         @media (max-width: 768px) {
-
-            .nav-links { display: none; }
-
-            .hero-text h1 { font-size: 2.5rem; }
-
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-120%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                z-index: 99;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            .nav-links a {
+                padding: 0.75rem 1.5rem;
+                display: block;
+                text-align: center;
+            }
         }
 
+        /* Hero */
+        .hero {
+            padding: 4rem 0 3rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            aspect-ratio: 4/3;
+            background: #eef2ff;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.75rem 0;
+            background: var(--white);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-item i {
+            font-size: 1.75rem;
+            color: var(--accent);
+        }
+
+        .trust-item span {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--primary);
+        }
+
+        /* Beneficios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Sección catálogo */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(10, 17, 40, 0.2);
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .product-img {
+            height: 200px;
+            background: var(--bg-light);
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.03);
+        }
+
+        .product-info h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-specs {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .product-specs li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-specs i {
+            color: var(--accent);
+            width: 1rem;
+        }
+
+        .product-actions {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Testimonios */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            font-style: normal;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .review-author {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1.25rem 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:after {
+            content: '\f067';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            transition: transform 0.2s;
+        }
+
+        details[open] summary:after {
+            transform: rotate(45deg);
+        }
+
+        .faq-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+
+        .footer-col p, .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 0.25rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #1e2a3e;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* Botones flotantes */
+        .fab-wa {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--wa-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .fab-wa:hover {
+            transform: scale(1.1);
+            background: #20b859;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: var(--primary);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 100;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #000;
+            transform: translateY(-3px);
+        }
+
+        /* Ajustes responsive */
+        @media (max-width: 992px) {
+            .hero-grid, .benefits-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .section-padding {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            .trust-item span {
+                font-size: 0.75rem;
+            }
+            .product-price {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animaciones sutiles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card, .benefit-card, .review-card {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
     </style>
-
 </head>
-
 <body>
 
-
-
 <header>
-
     <div class="container header-content">
-
-        <a href="#" class="logo">ECOTRAIL<span>.</span></a>
-
+        <a href="#" class="logo">Ecotrail<span class="logo-highlight">Pilar</span></a>
+        <button class="menu-toggle" aria-label="Menú" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
         <nav class="nav-links">
-
             <a href="#modelos">Modelos</a>
-
             <a href="#ingenieria">Ingeniería</a>
-
             <a href="#faq">Preguntas Frecuentes</a>
-
         </nav>
-
-        <a href="#modelos" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Ver Catálogo</a>
-
+        <a href="https://ecotrail.mitiendanube.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver Catálogo</a>
     </div>
-
 </header>
 
-
-
-<section class="hero">
-
-    <div class="container hero-grid">
-
-        <div class="hero-text">
-
-            <h1>Mueve cargas pesadas sin esfuerzo.</h1>
-
-            <p>Tráileres para bicicleta de grado industrial fabricados en Argentina. Diseñados para aventureros, emprendedores y uso extremo.</p>
-
-            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-
-                <a href="#modelos" class="btn btn-primary">Catálogo y Precios</a>
-
+<main>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Moviendo grandes cosas.</h1>
+                <p>Tráileres para bicicleta de grado industrial fabricados en Argentina. Diseñados para aventureros, emprendedores y uso extremo.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#modelos" class="btn btn-primary">Ver Modelos</a>
+                </div>
             </div>
-
+            <div class="hero-image">
+                <img src="assets/images/tetp.jpeg" alt="Trailer EcotrailPilar en uso" loading="eager">
+            </div>
         </div>
+    </section>
 
-        <div class="hero-image">
-
-            <img src="assets/images/tetp.jpeg" alt="Trailer Ecotrail en uso">
-
+    <div class="trust-bar">
+        <div class="container trust-grid">
+            <div class="trust-item"><i class="fas fa-truck-fast"></i><span>Envíos a todo el país</span></div>
+            <div class="trust-item"><i class="fas fa-shield-halved"></i><span>Garantía de Fábrica</span></div>
+            <div class="trust-item"><i class="fas fa-star"></i><span>100% Positivo en ML</span></div>
+            <div class="trust-item"><i class="fas fa-industry"></i><span>Industria Argentina</span></div>
         </div>
-
     </div>
 
-</section>
+    <section id="ingenieria" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Construidos para durar</h2>
+                <p>No hacemos juguetes. Cada EcotrailPilar está soldado y ensamblado pensando en la fatiga del uso diario en la calle.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Carga Pesada</h3>
+                    <p>Nuestros chasis utilitarios están diseñados para soportar hasta 160kg reales sin comprometer la estabilidad de tu bicicleta.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-link"></i>
+                    <h3>Enganche Universal</h3>
+                    <p>Sistema de acople rápido y seguro compatible con el 99% de las bicicletas del mercado, incluyendo rodados 29.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-spray-can"></i>
+                    <h3>Pintura de Alta Resistencia</h3>
+                    <p>Acabado industrial que protege contra la corrosión, rayones y el clima extremo. Listo para trabajar en la calle o la costa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="modelos" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Flota</h2>
+                <p>Selecciona el chasis que mejor se adapte a tu operación.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/images/urbano.jpeg" alt="Urbano Clásico" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Urbano Clásico</h3>
+                        <div class="product-price">$390.000</div>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Ideal para reparto ligero</li>
+                            <li><i class="fas fa-check"></i> Estructura perimetral</li>
+                            <li><i class="fas fa-check"></i> Llantas reforzadas</li>
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/images/utilitario.jpeg" alt="Utilitario Enrejado" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Utilitario Enrejado</h3>
+                        <div class="product-price">$350.000</div>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Máxima contención de carga</li>
+                            <li><i class="fas fa-check"></i> Alta capacidad de peso</li>
+                            <li><i class="fas fa-check"></i> Malla de acero soldada</li>
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-remolque-bicicleta-utilitario-reforzado-nacional/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/images/playo.jpeg" alt="Playo XL" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Playo XL</h3>
+                        <div class="product-price">$250.000</div>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Base plana libre</li>
+                            <li><i class="fas fa-check"></i> Ideal cargas voluminosas</li>
+                            <li><i class="fas fa-check"></i> Bajo centro de gravedad</li>
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="badge-new">Nuevo</span>
+                    <div class="product-img">
+                        <img src="assets/images/pescador.jpeg" alt="Modelo Pescador" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Modelo Pescador</h3>
+                        <div class="product-price">$350.000</div>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Soporta hasta 80kg</li>
+                            <li><i class="fas fa-check"></i> Adaptado para playa/arena</li>
+                            <li><i class="fas fa-check"></i> Soportes específicos</li>
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://ecotrail.mitiendanube.com/productos/carrito-trailer-para-bicicleta-de-carga-pesca-playa-80kg/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lo que dicen en el terreno</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Compré el Enrejado para mi reparto de ferretería. Lo cargo con cajas pesadas y ni se mueve. La estructura es un tanque."</p>
+                    <div class="review-author">Martín G. - Usuario de MercadoLibre</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Excelente terminación. El enganche a la bici (tengo una rodado 29) quedó perfecto en 5 minutos. Muy recomendable."</p>
+                    <div class="review-author">Diego F. - Compra Directa</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Llevé el Playo XL a la costa. Carga la conservadora, las reposeras y la sombrilla sin problemas por la arena."</p>
+                    <div class="review-author">Lucía M. - Cliente Pilar</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="trust-bar">
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preguntas Frecuentes</h2>
+            </div>
+            <div class="faq-container">
+                <details>
+                    <summary>¿El enganche sirve para cualquier bicicleta?</summary>
+                    <div class="faq-content">Sí, nuestro sistema de enganche está diseñado para ser universal. Se adapta al eje trasero de casi todas las bicicletas, incluyendo rodados grandes como 29".</div>
+                </details>
+                <details>
+                    <summary>¿Cuánto peso real soportan?</summary>
+                    <div class="faq-content">Depende del modelo. Nuestros modelos de carga pesada utilitaria están probados con cargas de hasta 160kg, mientras que modelos específicos como el Pescador están optimizados para 80kg de equipo.</div>
+                </details>
+                <details>
+                    <summary>¿Hacen envíos al interior del país?</summary>
+                    <div class="faq-content">Totalmente. Despachamos a toda Argentina. Puedes calcular el costo y tiempo de entrega directamente a través de nuestro catálogo en MercadoLibre o TiendaNube.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+</main>
 
-    <div class="container trust-grid">
-
-        <div class="trust-item"><i class="fas fa-truck-fast"></i><span>Envíos a todo el país</span></div>
-
-        <div class="trust-item"><i class="fas fa-shield-halved"></i><span>Garantía de Fábrica</span></div>
-
-        <div class="trust-item"><i class="fas fa-star"></i><span>100% Positivo en ML</span></div>
-
-        <div class="trust-item"><i class="fas fa-industry"></i><span>Industria Argentina</span></div>
-
-    </div>
-
-</div>
-
-
-
-<section id="ingenieria" class="section-padding bg-light">
-
+<footer>
     <div class="container">
-
-        <div class="section-header">
-
-            <h2>Construidos para durar</h2>
-
-            <p>No hacemos juguetes. Cada Ecotrail está soldado y ensamblado pensando en la fatiga del uso diario en la calle.</p>
-
-        </div>
-
-        <div class="benefits-grid">
-
-            <div class="benefit-card">
-
-                <i class="fas fa-dumbbell"></i>
-
-                <h3>Carga Pesada</h3>
-
-                <p>Nuestros chasis utilitarios están diseñados para soportar hasta 160kg reales sin comprometer la estabilidad de tu bicicleta.</p>
-
-            </div>
-
-            <div class="benefit-card">
-
-                <i class="fas fa-link"></i>
-
-                <h3>Enganche Universal</h3>
-
-                <p>Sistema de acople rápido y seguro compatible con el 99% de las bicicletas del mercado, incluyendo rodados 29.</p>
-
-            </div>
-
-            <div class="benefit-card">
-
-                <i class="fas fa-spray-can"></i>
-
-                <h3>Pintura de Alta Resistencia</h3>
-
-                <p>Acabado industrial que protege contra la corrosión, rayones y el clima extremo. Listo para trabajar en la calle o la costa.</p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<section id="modelos" class="section-padding">
-    <div class="container">
-        <div class="section-header">
-            <h2>Nuestra Flota</h2>
-            <p>Selecciona el chasis que mejor se adapte a tu operación.</p>
-        </div>
-        
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-img-ph">
-                    <img src="assets/images/urbano.jpeg" alt="Trailer Urbano Clásico" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
-                </div>
-                <div class="product-info">
-                    <h3>Urbano Clásico</h3>
-                    <div class="product-price">$390.000</div>
-                    <ul class="product-specs">
-                        <li><i class="fas fa-check"></i> Ideal para reparto ligero</li>
-                        <li><i class="fas fa-check"></i> Estructura perimetral</li>
-                        <li><i class="fas fa-check"></i> Llantas reforzadas</li>
-                    </ul>
-                </div>
-                <div class="product-actions">
-                    <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" class="btn btn-primary" style="width: 100%;">Comprar Directo</a>
-                    <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-ph">
-                    <img src="assets/images/utilitario.jpeg" alt="Trailer Utilitario Enrejado" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
-                </div>
-                <div class="product-info">
-                    <h3>Utilitario Enrejado</h3>
-                    <div class="product-price">$350.000</div>
-                    <ul class="product-specs">
-                        <li><i class="fas fa-check"></i> Máxima contención de carga</li>
-                        <li><i class="fas fa-check"></i> Alta capacidad de peso</li>
-                        <li><i class="fas fa-check"></i> Malla de acero soldada</li>
-                    </ul>
-                </div>
-                <div class="product-actions">
-                    <a href="https://ecotrail.mitiendanube.com/productos/trailer-remolque-bicicleta-utilitario-reforzado-nacional/" target="_blank" class="btn btn-primary" style="width: 100%;">Comprar Directo</a>
-                    <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-ph">
-                    <img src="assets/images/playo.jpeg" alt="Trailer Playo XL" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
-                </div>
-                <div class="product-info">
-                    <h3>Playo XL</h3>
-                    <div class="product-price">$250.000</div>
-                    <ul class="product-specs">
-                        <li><i class="fas fa-check"></i> Base plana libre</li>
-                        <li><i class="fas fa-check"></i> Ideal cargas voluminosas</li>
-                        <li><i class="fas fa-check"></i> Bajo centro de gravedad</li>
-                    </ul>
-                </div>
-                <div class="product-actions">
-                    <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" class="btn btn-primary" style="width: 100%;">Comprar Directo</a>
-                    <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <span class="badge-new">Nuevo</span>
-                <div class="product-img-ph">
-                    <img src="assets/images/pescador.jpeg" alt="Trailer Modelo Pescador" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
-                </div>
-                <div class="product-info">
-                    <h3>Modelo Pescador</h3>
-                    <div class="product-price">$350.000</div>
-                    <ul class="product-specs">
-                        <li><i class="fas fa-check"></i> Soporta hasta 80kg</li>
-                        <li><i class="fas fa-check"></i> Adaptado para playa/arena</li>
-                        <li><i class="fas fa-check"></i> Soportes específicos</li>
-                    </ul>
-                </div>
-                <div class="product-actions">
-                    <a href="https://ecotrail.mitiendanube.com/productos/carrito-trailer-para-bicicleta-de-carga-pesca-playa-80kg/" target="_blank" class="btn btn-primary" style="width: 100%;">Comprar Directo</a>
-                    <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<section class="section-padding bg-light">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <h2>Lo que dicen en el terreno</h2>
-
-        </div>
-
-        <div class="reviews-grid">
-
-            <div class="review-card">
-
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-
-                <p class="review-text">"Compré el Enrejado para mi reparto de ferretería. Lo cargo con cajas pesadas y ni se mueve. La estructura es un tanque."</p>
-
-                <div class="review-author">Martín G. - Usuario de MercadoLibre</div>
-
-            </div>
-
-            <div class="review-card">
-
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-
-                <p class="review-text">"Excelente terminación. El enganche a la bici (tengo una rodado 29) quedó perfecto en 5 minutos. Muy recomendable."</p>
-
-                <div class="review-author">Diego F. - Compra Directa</div>
-
-            </div>
-
-            <div class="review-card">
-
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-
-                <p class="review-text">"Llevé el Playo XL a la costa. Carga la conservadora, las reposeras y la sombrilla sin problemas por la arena."</p>
-
-                <div class="review-author">Lucía M. - Cliente Pilar</div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<section id="faq" class="section-padding">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <h2>Preguntas Frecuentes</h2>
-
-        </div>
-
-        <div class="faq-container">
-
-            <details>
-
-                <summary>¿El enganche sirve para cualquier bicicleta?</summary>
-
-                <div class="faq-content">Sí, nuestro sistema de enganche está diseñado para ser universal. Se adapta al eje trasero de casi todas las bicicletas, incluyendo rodados grandes como 29".</div>
-
-            </details>
-
-            <details>
-
-                <summary>¿Cuánto peso real soportan?</summary>
-
-                <div class="faq-content">Depende del modelo. Nuestros modelos de carga pesada utilitaria están probados con cargas de hasta 160kg, mientras que modelos específicos como el Pescador están optimizados para 80kg de equipo.</div>
-
-            </details>
-
-            <details>
-
-                <summary>¿Hacen envíos al interior del país?</summary>
-
-                <div class="faq-content">Totalmente. Despachamos a toda Argentina. Puedes calcular el costo y tiempo de entrega directamente a través de nuestro catálogo en MercadoLibre o TiendaNube.</div>
-
-            </details>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<footer class="bg-dark">
-
-    <div class="container">
-
         <div class="footer-grid">
-
             <div class="footer-col">
-
-                <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">ECOTRAIL<span style="color: var(--accent);">.</span></a>
-
-                <p>Fabricación nacional de tráileres para bicicleta. Combinamos ingeniería robusta con diseño utilitario para multiplicar tu capacidad de movimiento.</p>
-
+                <a href="#" class="logo" style="color: white;">Ecotrail<span class="logo-highlight">Pilar</span></a>
+                <p style="margin-top: 1rem;">Fabricación nacional de tráileres para bicicleta. Combinamos ingeniería robusta con diseño utilitario para multiplicar tu capacidad de movimiento.</p>
             </div>
-
             <div class="footer-col">
-
                 <h4>Navegación</h4>
-
                 <ul class="footer-links">
-
                     <li><a href="#modelos">Catálogo</a></li>
-
                     <li><a href="#ingenieria">Sobre la fabricación</a></li>
-
                     <li><a href="#faq">Preguntas Frecuentes</a></li>
-
                 </ul>
-
             </div>
-
             <div class="footer-col">
-
                 <h4>Contacto Directo</h4>
-
                 <p><i class="fab fa-whatsapp"></i> +54 9 11 5948-4880</p>
-
                 <p><i class="fas fa-location-dot"></i> Pilar, Buenos Aires</p>
-
-                <a href="https://ecotrail.mitiendanube.com" target="_blank" class="btn btn-outline" style="border-color: #334155; color: white; padding: 10px 20px; font-size: 0.8rem; margin-top: 10px;">Ir a la Tienda</a>
-
+                <a href="https://ecotrail.mitiendanube.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: #334155; color: white; margin-top: 0.5rem;">Ir a la Tienda</a>
             </div>
-
         </div>
-
         <div class="footer-bottom">
-
-            <p>© 2026 Ecotrail Pilar. Todos los derechos reservados.</p>
-
+            <p>© 2026 EcotrailPilar. Todos los derechos reservados.</p>
         </div>
-
     </div>
-
 </footer>
 
-
-
-<a href="https://wa.me/5491159484880" target="_blank" class="fab-wa">
-
+<a href="https://wa.me/5491159484880" target="_blank" rel="noopener noreferrer" class="fab-wa" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
-
 </a>
 
+<a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+</a>
 
+<script>
+    // Menú hamburguesa
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true' ? false : true;
+            menuToggle.setAttribute('aria-expanded', expanded);
+            navLinks.classList.toggle('open');
+        });
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // Botón volver arriba
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
 </body>
-
 </html>
