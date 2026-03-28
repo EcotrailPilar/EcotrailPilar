@@ -10,6 +10,8 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://ecotrailpilar.com.ar/">
+    <!-- Favicon provisional -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚲</text></svg>">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="EcotrailPilar | Tráileres para bicicleta de carga pesada - Industria Argentina">
@@ -113,28 +115,35 @@
             box-shadow: var(--shadow-md);
         }
 
-        .btn-ml {
-            background-color: var(--ml-yellow);
-            color: #000;
-            width: 100%;
-            justify-content: center;
+        .btn-wa {
+            background-color: var(--wa-green);
+            color: white;
+        }
+        .btn-wa:hover {
+            background-color: #20b859;
+            transform: translateY(-2px);
         }
 
-        .btn-ml:hover {
-            background-color: #facc15;
-            transform: scale(0.98);
-        }
-
+        /* Botón secundario estilo outline (para MercadoLibre) */
         .btn-outline {
             border: 1px solid var(--border);
             background: transparent;
-            color: var(--text-dark);
+            color: var(--text-muted);
+            font-weight: 600;
+            background-color: transparent;
         }
 
         .btn-outline:hover {
             border-color: var(--primary);
             color: var(--primary);
             background: rgba(10, 17, 40, 0.02);
+        }
+
+        .btn-ml {
+            /* Ya no se usa como sólido, ahora usamos btn-outline para ML */
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         /* Header y navegación */
@@ -401,7 +410,6 @@
             z-index: 2;
         }
 
-        /* Imágenes del catálogo ahora más cuadradas (4:3) */
         .product-img {
             width: 100%;
             aspect-ratio: 4 / 3;
@@ -465,6 +473,48 @@
             gap: 0.75rem;
         }
 
+        /* Cómo comprar */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .step-card {
+            text-align: center;
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .step-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
         /* Testimonios */
         .reviews-grid {
             display: grid;
@@ -503,6 +553,20 @@
             font-size: 0.8rem;
             color: var(--text-muted);
             text-transform: uppercase;
+        }
+
+        /* Video */
+        .video-container {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
         }
 
         /* FAQ */
@@ -759,7 +823,7 @@
             }
         }
 
-        .product-card, .benefit-card, .review-card {
+        .product-card, .benefit-card, .review-card, .step-card {
             animation: fadeInUp 0.4s ease-out forwards;
         }
 
@@ -795,6 +859,7 @@
                 <p>Fabricantes líderes en Argentina. Tráileres con ingeniería de carga pesada, enganche universal y estructura industrial. Ideales para emprendedores, pesca deportiva, mudanzas y uso extremo. ¡Envíos a todo el país!</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="#modelos" class="btn btn-primary">Explorar modelos EcotrailPilar</a>
+                    <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" rel="noopener noreferrer" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -835,6 +900,11 @@
                     <p>Acabado industrial que protege contra corrosión, rayones y clima extremo. Fabricación 100% nacional.</p>
                 </div>
             </div>
+            <!-- Video demostrativo -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Demostración EcotrailPilar" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Reemplazar VIDEO_ID por el ID real de YouTube -->
+            </div>
         </div>
     </section>
 
@@ -860,7 +930,7 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -878,7 +948,7 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/trailer-remolque-bicicleta-utilitario-reforzado-nacional/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -896,7 +966,7 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -915,14 +985,46 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/carrito-trailer-para-bicicleta-de-carga-pesca-playa-80kg/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" rel="noopener noreferrer" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="porque-elegirnos" class="section-padding bg-light">
+    <!-- CÓMO COMPRAR -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Cómo comprar tu EcotrailPilar?</h2>
+                <p>Simple, rápido y seguro. Elegí el modelo que más te guste y completá tu compra.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Elegí tu modelo</h3>
+                    <p>Explorá nuestra flota y seleccioná el tráiler que mejor se adapte a tus necesidades.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Pagá como prefieras</h3>
+                    <p>Mercado Pago, transferencia, tarjetas en cuotas. Todos los medios aceptados.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Recibilo en tu domicilio</h3>
+                    <p>Enviamos a todo el país con correo privado u OCA. Coordinamos el envío a tu puerta.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Disfrutá tu tráiler</h3>
+                    <p>Armado sencillo, manual incluido y soporte postventa. ¡A pedalear con carga!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="porque-elegirnos" class="section-padding">
         <div class="container">
             <div class="section-header">
                 <h2>¿Por qué EcotrailPilar es tu mejor opción?</h2>
@@ -948,7 +1050,7 @@
         </div>
     </section>
 
-    <section class="section-padding">
+    <section class="section-padding bg-light">
         <div class="container">
             <div class="section-header">
                 <h2>Lo que dicen en el terreno</h2>
@@ -973,7 +1075,7 @@
         </div>
     </section>
 
-    <section id="faq" class="section-padding bg-light">
+    <section id="faq" class="section-padding">
         <div class="container">
             <div class="section-header">
                 <h2>Preguntas Frecuentes sobre Tráileres EcotrailPilar</h2>
@@ -995,12 +1097,16 @@
                     <summary>¿Los tráileres vienen armados?</summary>
                     <div class="faq-content">Se entregan semi-armados con instrucciones claras. El armado es muy sencillo y no requiere herramientas especiales. Podés ver tutoriales en nuestro canal de YouTube.</div>
                 </details>
+                <details>
+                    <summary>¿Qué garantía tienen?</summary>
+                    <div class="faq-content">Todos nuestros tráileres cuentan con 12 meses de garantía contra defectos de fabricación. Además, disponemos de repuestos originales para que tu equipo esté siempre operativo.</div>
+                </details>
             </div>
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN DE REDES SOCIALES -->
-    <section class="section-padding">
+    <!-- SECCIÓN DE REDES SOCIALES -->
+    <section class="section-padding bg-light">
         <div class="container">
             <div class="section-header">
                 <h2>Seguinos en nuestras redes</h2>
@@ -1020,7 +1126,7 @@
                     <i class="fab fa-tiktok"></i> <span>TikTok</span>
                 </a>
             </div>
-            <!-- Reemplazar los href="#"" por las URLs oficiales de las redes sociales de EcotrailPilar -->
+            <!-- IMPORTANTE: Reemplazar los href="#"" por las URLs reales de tus redes sociales -->
         </div>
     </section>
 </main>
@@ -1054,7 +1160,7 @@
     </div>
 </footer>
 
-<!-- WhatsApp con mensaje predeterminado -->
+<!-- WhatsApp flotante -->
 <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" rel="noopener noreferrer" class="fab-wa" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
@@ -1094,7 +1200,7 @@
     });
 </script>
 
-<!-- JSON-LD Mejorado: Organización + LocalBusiness + Productos -->
+<!-- JSON-LD (mantenido) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
