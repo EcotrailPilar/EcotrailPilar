@@ -401,8 +401,10 @@
             z-index: 2;
         }
 
+        /* Imágenes del catálogo ahora más cuadradas (4:3) */
         .product-img {
-            height: 200px;
+            width: 100%;
+            aspect-ratio: 4 / 3;
             background: var(--bg-light);
             border-radius: 1rem;
             margin-bottom: 1.5rem;
@@ -978,7 +980,8 @@
     </div>
 </footer>
 
-<a href="https://wa.me/5491159484880" target="_blank" rel="noopener noreferrer" class="fab-wa" aria-label="WhatsApp">
+<!-- WhatsApp con mensaje predeterminado -->
+<a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" rel="noopener noreferrer" class="fab-wa" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
 
