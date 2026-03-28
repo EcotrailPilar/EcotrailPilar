@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>EcotrailPilar | Tráileres para bicicleta - Fabricación Nacional</title>
-    <meta name="description" content="EcotrailPilar: fabricantes de tráileres para bicicleta de carga pesada hasta 160kg. Ingeniería argentina, enganche universal y estructura industrial. Envíos a todo el país.">
-    <meta name="keywords" content="EcotrailPilar, trailer bicicleta, carro carga bicicleta, remolque bici, trailer utilitario argentina, tráiler para bicicleta pesado, Ecotrail Pilar">
+    <title>EcotrailPilar | Tráileres para bicicleta de carga pesada - Industria Argentina</title>
+    <meta name="description" content="EcotrailPilar: líderes en fabricación de tráileres para bicicleta con capacidad hasta 160kg. Ingeniería argentina, enganche universal, envíos a todo el país. Comprá directo o por MercadoLibre.">
+    <meta name="keywords" content="EcotrailPilar, trailer bicicleta, carro carga bicicleta, remolque bici, trailer utilitario argentina, tráiler para bicicleta pesado, Ecotrail Pilar, carrito para bicicleta">
     <meta name="author" content="EcotrailPilar">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://ecotrailpilar.com.ar/">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="EcotrailPilar | Tráileres para bicicleta - Industria Argentina">
-    <meta property="og:description" content="Tráileres robustos para bicicleta, carga hasta 160kg. Diseñados para reparto, pesca, camping y uso extremo. Envíos a todo el país.">
+    <meta property="og:title" content="EcotrailPilar | Tráileres para bicicleta de carga pesada - Industria Argentina">
+    <meta property="og:description" content="Tráileres robustos para bicicleta, carga hasta 160kg. Diseñados para reparto, pesca, camping y uso extremo. Envíos a todo el país. ¡Conocé los modelos!">
     <meta property="og:image" content="assets/images/tetp.jpeg">
     <meta property="og:url" content="https://ecotrailpilar.com.ar/">
+    <meta property="og:site_name" content="EcotrailPilar">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="EcotrailPilar | Tráileres para bicicleta de carga pesada">
@@ -170,7 +171,6 @@
             font-weight: 900;
         }
 
-        /* Navegación escritorio */
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -188,7 +188,6 @@
             color: var(--primary);
         }
 
-        /* Menú hamburguesa (mobile) */
         .menu-toggle {
             display: none;
             background: none;
@@ -347,7 +346,7 @@
             font-size: 0.9rem;
         }
 
-        /* Sección catálogo - MODIFICADO: 2 productos por línea */
+        /* Sección catálogo */
         .section-header {
             text-align: center;
             max-width: 700px;
@@ -364,7 +363,6 @@
             font-size: 1.125rem;
         }
 
-        /* CATÁLOGO: 2 columnas fijas en desktop (2 productos por línea) */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -598,7 +596,6 @@
             color: #64748b;
         }
 
-        /* Botones flotantes */
         .fab-wa {
             position: fixed;
             bottom: 1.5rem;
@@ -654,7 +651,6 @@
             transform: translateY(-3px);
         }
 
-        /* RESPONSIVE: móvil 1 columna, mantiene 2 columnas en tablet y escritorio */
         @media (max-width: 992px) {
             .hero-grid, .benefits-grid, .reviews-grid {
                 grid-template-columns: 1fr;
@@ -689,21 +685,18 @@
             .product-price {
                 font-size: 1.5rem;
             }
-            /* 2 productos por línea en desktop, en móvil se apilan uno abajo del otro */
             .products-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
         }
 
-        /* Para pantallas grandes mantener 2 columnas */
         @media (min-width: 769px) and (max-width: 1200px) {
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Animaciones sutiles */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -719,7 +712,6 @@
             animation: fadeInUp 0.4s ease-out forwards;
         }
 
-        /* Estilo adicional para destacar la marca en SEO y legibilidad */
         .brand-highlight {
             color: var(--accent);
             font-weight: 800;
@@ -730,14 +722,15 @@
 
 <header>
     <div class="container header-content">
-        <a href="#" class="logo">Ecotrail<span class="logo-highlight">Pilar</span></a>
+        <a href="#" class="logo" aria-label="EcotrailPilar - Inicio">Ecotrail<span class="logo-highlight">Pilar</span></a>
         <button class="menu-toggle" aria-label="Menú" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
         <nav class="nav-links">
-            <a href="#modelos">Modelos</a>
-            <a href="#ingenieria">Ingeniería</a>
+            <a href="#modelos">Modelos EcotrailPilar</a>
+            <a href="#ingenieria">Ingeniería Argentina</a>
             <a href="#faq">Preguntas Frecuentes</a>
+            <a href="#porque-elegirnos">¿Por qué elegirnos?</a>
         </nav>
         <a href="https://ecotrail.mitiendanube.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver Catálogo</a>
     </div>
@@ -747,14 +740,14 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
-                <h1>EcotrailPilar: <span style="color:var(--accent);">Tráileres para bicicleta</span><br>Moviendo grandes cosas.</h1>
-                <p>Fabricantes líderes en Argentina. Tráileres con ingeniería de carga pesada, enganche universal y estructura industrial. Diseñados para emprendedores, pesca deportiva, mudanzas y uso extremo.</p>
+                <h1>EcotrailPilar: <span style="color:var(--accent);">Tráileres para bicicleta</span> con capacidad de carga pesada hasta 160kg</h1>
+                <p>Fabricantes líderes en Argentina. Tráileres con ingeniería de carga pesada, enganche universal y estructura industrial. Ideales para emprendedores, pesca deportiva, mudanzas y uso extremo. ¡Envíos a todo el país!</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="#modelos" class="btn btn-primary">Explorar modelos EcotrailPilar</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/images/tetp.jpeg" alt="Trailer EcotrailPilar en uso - remolque bicicleta argentino" loading="eager">
+                <img src="assets/images/tetp.jpeg" alt="Trailer EcotrailPilar en uso - remolque para bicicleta argentino de carga pesada" loading="eager">
             </div>
         </div>
     </section>
@@ -771,13 +764,13 @@
     <section id="ingenieria" class="section-padding bg-light">
         <div class="container">
             <div class="section-header">
-                <h2>Construidos para durar</h2>
-                <p>EcotrailPilar nace en Pilar, Buenos Aires, con la misión de ofrecer soluciones de movilidad sustentable. Cada chasis es soldado y ensamblado bajo estándares industriales.</p>
+                <h2>Construidos para durar: la calidad EcotrailPilar</h2>
+                <p>EcotrailPilar nace en Pilar, Buenos Aires, con la misión de ofrecer soluciones de movilidad sustentable. Cada chasis es soldado y ensamblado bajo estándares industriales. Somos sinónimo de trailer para bicicleta robusto.</p>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <i class="fas fa-dumbbell"></i>
-                    <h3>Carga Pesada</h3>
+                    <h3>Carga Pesada hasta 160kg</h3>
                     <p>Nuestros chasis utilitarios están diseñados para soportar hasta 160kg reales sin comprometer la estabilidad de tu bicicleta. Máxima resistencia EcotrailPilar.</p>
                 </div>
                 <div class="benefit-card">
@@ -797,21 +790,21 @@
     <section id="modelos" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Nuestra Flota</h2>
-                <p>Conocé los modelos exclusivos de <strong class="brand-highlight">EcotrailPilar</strong>, diseñados para cada necesidad. 2 productos por línea para mejor visualización.</p>
+                <h2>Nuestra Flota de Tráileres para Bicicleta</h2>
+                <p>Conocé los modelos exclusivos de <strong class="brand-highlight">EcotrailPilar</strong>, diseñados para cada necesidad. Calidad industrial y enganche universal.</p>
             </div>
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="assets/images/urbano.jpeg" alt="EcotrailPilar Urbano Clásico - trailer para bicicleta carga liviana" loading="lazy">
+                        <img src="assets/images/urbano.jpeg" alt="EcotrailPilar Urbano Clásico - trailer para bicicleta carga liviana y reparto urbano" loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3>Urbano Clásico</h3>
                         <div class="product-price">$390.000</div>
                         <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Ideal para reparto ligero</li>
-                            <li><i class="fas fa-check"></i> Estructura perimetral</li>
-                            <li><i class="fas fa-check"></i> Llantas reforzadas</li>
+                            <li><i class="fas fa-check"></i> Ideal para reparto ligero y compras</li>
+                            <li><i class="fas fa-check"></i> Estructura perimetral reforzada</li>
+                            <li><i class="fas fa-check"></i> Llantas reforzadas con rodamiento sellado</li>
                         </ul>
                     </div>
                     <div class="product-actions">
@@ -821,15 +814,15 @@
                 </div>
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="assets/images/utilitario.jpeg" alt="EcotrailPilar Utilitario Enrejado - remolque bici carga pesada" loading="lazy">
+                        <img src="assets/images/utilitario.jpeg" alt="EcotrailPilar Utilitario Enrejado - remolque bici carga pesada con malla de acero" loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3>Utilitario Enrejado</h3>
                         <div class="product-price">$350.000</div>
                         <ul class="product-specs">
                             <li><i class="fas fa-check"></i> Máxima contención de carga</li>
-                            <li><i class="fas fa-check"></i> Alta capacidad de peso</li>
-                            <li><i class="fas fa-check"></i> Malla de acero soldada</li>
+                            <li><i class="fas fa-check"></i> Alta capacidad de peso hasta 160kg</li>
+                            <li><i class="fas fa-check"></i> Malla de acero soldada resistente</li>
                         </ul>
                     </div>
                     <div class="product-actions">
@@ -839,14 +832,14 @@
                 </div>
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="assets/images/playo.jpeg" alt="EcotrailPilar Playo XL - carro bicicleta base plana" loading="lazy">
+                        <img src="assets/images/playo.jpeg" alt="EcotrailPilar Playo XL - carro bicicleta base plana para cargas voluminosas" loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3>Playo XL</h3>
                         <div class="product-price">$250.000</div>
                         <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Base plana libre</li>
-                            <li><i class="fas fa-check"></i> Ideal cargas voluminosas</li>
+                            <li><i class="fas fa-check"></i> Base plana libre para cargas irregulares</li>
+                            <li><i class="fas fa-check"></i> Ideal cargas voluminosas o cajas grandes</li>
                             <li><i class="fas fa-check"></i> Bajo centro de gravedad</li>
                         </ul>
                     </div>
@@ -858,15 +851,15 @@
                 <div class="product-card">
                     <span class="badge-new">Nuevo</span>
                     <div class="product-img">
-                        <img src="assets/images/pescador.jpeg" alt="EcotrailPilar Modelo Pescador - trailer playa y pesca" loading="lazy">
+                        <img src="assets/images/pescador.jpeg" alt="EcotrailPilar Modelo Pescador - trailer para bicicleta playa y pesca con soportes" loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3>Modelo Pescador</h3>
                         <div class="product-price">$350.000</div>
                         <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Soporta hasta 80kg</li>
-                            <li><i class="fas fa-check"></i> Adaptado para playa/arena</li>
-                            <li><i class="fas fa-check"></i> Soportes específicos</li>
+                            <li><i class="fas fa-check"></i> Soporta hasta 80kg en terrenos blandos</li>
+                            <li><i class="fas fa-check"></i> Adaptado para playa, arena y caminos rurales</li>
+                            <li><i class="fas fa-check"></i> Soportes específicos para cañas y conservadora</li>
                         </ul>
                     </div>
                     <div class="product-actions">
@@ -878,7 +871,33 @@
         </div>
     </section>
 
-    <section class="section-padding bg-light">
+    <section id="porque-elegirnos" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Por qué EcotrailPilar es tu mejor opción?</h2>
+                <p>Líderes en fabricación de tráileres para bicicleta con respaldo de cientos de clientes satisfechos en todo Argentina.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Mejor relación precio-calidad</h3>
+                    <p>Ofrecemos tráileres robustos con los mejores materiales del mercado al precio más competitivo. Financiación en cuotas.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Postventa y repuestos</h3>
+                    <p>Contamos con servicio de repuestos y atención personalizada para que tu EcotrailPilar dure toda la vida.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Más de 500 unidades vendidas</h3>
+                    <p>Clientes en todo el país confían en nuestros remolques para bicicleta para reparto, camping y logística sustentable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
         <div class="container">
             <div class="section-header">
                 <h2>Lo que dicen en el terreno</h2>
@@ -903,23 +922,27 @@
         </div>
     </section>
 
-    <section id="faq" class="section-padding">
+    <section id="faq" class="section-padding bg-light">
         <div class="container">
             <div class="section-header">
-                <h2>Preguntas Frecuentes</h2>
+                <h2>Preguntas Frecuentes sobre Tráileres EcotrailPilar</h2>
             </div>
             <div class="faq-container">
                 <details>
                     <summary>¿El enganche sirve para cualquier bicicleta?</summary>
-                    <div class="faq-content">Sí, nuestro sistema de enganche universal desarrollado por EcotrailPilar es compatible con casi todas las bicicletas, incluyendo rodados 29".</div>
+                    <div class="faq-content">Sí, nuestro sistema de enganche universal desarrollado por EcotrailPilar es compatible con casi todas las bicicletas, incluyendo rodados 29", mountain bike, urbanas y eléctricas. Incluye adaptador para diferentes ejes.</div>
                 </details>
                 <details>
-                    <summary>¿Cuánto peso real soportan?</summary>
-                    <div class="faq-content">Depende del modelo. Nuestros modelos de carga pesada utilitaria están probados con cargas de hasta 160kg, mientras que modelos específicos como el Pescador están optimizados para 80kg.</div>
+                    <summary>¿Cuánto peso real soportan los trailers?</summary>
+                    <div class="faq-content">Depende del modelo. Nuestros modelos de carga pesada utilitaria están probados con cargas de hasta 160kg (Utilitario Enrejado), mientras que modelos específicos como el Pescador están optimizados para 80kg. Todos superan ampliamente los estándares del mercado.</div>
                 </details>
                 <details>
                     <summary>¿Hacen envíos al interior del país?</summary>
-                    <div class="faq-content">Totalmente. Despachamos a toda Argentina. Podés calcular costo y tiempo en nuestro catálogo de TiendaNube o MercadoLibre.</div>
+                    <div class="faq-content">Totalmente. Despachamos a toda Argentina mediante correo privado y OCA. Podés calcular costo y tiempo en nuestro catálogo de TiendaNube o MercadoLibre. Envíos a CABA, GBA, Córdoba, Rosario, Mendoza, etc.</div>
+                </details>
+                <details>
+                    <summary>¿Los tráileres vienen armados?</summary>
+                    <div class="faq-content">Se entregan semi-armados con instrucciones claras. El armado es muy sencillo y no requiere herramientas especiales. Podés ver tutoriales en nuestro canal de YouTube.</div>
                 </details>
             </div>
         </div>
@@ -931,14 +954,15 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="#" class="logo" style="color: white;">Ecotrail<span class="logo-highlight">Pilar</span></a>
-                <p style="margin-top: 1rem;">Fabricación nacional de tráileres para bicicleta. Combinamos ingeniería robusta con diseño utilitario. Líderes en Argentina: buscá <strong>EcotrailPilar</strong> y encontrá el trailer que necesitás.</p>
+                <p style="margin-top: 1rem;">Fabricación nacional de tráileres para bicicleta. Combinamos ingeniería robusta con diseño utilitario. Líderes en Argentina: buscá <strong>EcotrailPilar</strong> y encontrá el trailer que necesitás para tu negocio o aventura.</p>
             </div>
             <div class="footer-col">
                 <h4>Navegación</h4>
                 <ul class="footer-links">
                     <li><a href="#modelos">Catálogo EcotrailPilar</a></li>
-                    <li><a href="#ingenieria">Sobre la fabricación</a></li>
+                    <li><a href="#ingenieria">Sobre la fabricación argentina</a></li>
                     <li><a href="#faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#porque-elegirnos">Beneficios exclusivos</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -949,7 +973,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 EcotrailPilar - Tráileres para bicicleta de alta resistencia. Industria Argentina.</p>
+            <p>© 2026 EcotrailPilar - Tráileres para bicicleta de alta resistencia. Industria Argentina. Todos los derechos reservados.</p>
         </div>
     </div>
 </footer>
@@ -963,7 +987,6 @@
 </a>
 
 <script>
-    // Menú hamburguesa
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle) {
@@ -980,7 +1003,6 @@
         });
     }
 
-    // Botón volver arriba
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 400) {
@@ -995,7 +1017,21 @@
     });
 </script>
 
-<!-- JSON-LD para mejorar SEO local y rich snippets (EcotrailPilar) -->
+<!-- JSON-LD Mejorado: Organización + LocalBusiness + Productos -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EcotrailPilar",
+  "url": "https://ecotrailpilar.com.ar/",
+  "logo": "https://ecotrailpilar.com.ar/assets/images/logo-ecotrail.png",
+  "sameAs": [
+    "https://www.mercadolibre.com.ar/perfil/ECOTRAILPILAR",
+    "https://ecotrail.mitiendanube.com/",
+    "https://wa.me/5491159484880"
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1004,7 +1040,6 @@
   "alternateName": "Ecotrail Pilar Trailers",
   "description": "Fabricantes de tráileres para bicicleta de carga pesada en Argentina. Venta directa, envíos a todo el país. Calidad industrial y enganche universal.",
   "url": "https://ecotrailpilar.com.ar/",
-  "logo": "https://ecotrailpilar.com.ar/assets/images/logo-ecotrail.png",
   "image": "https://ecotrailpilar.com.ar/assets/images/tetp.jpeg",
   "telephone": "+5491159484880",
   "address": {
@@ -1013,11 +1048,6 @@
     "addressRegion": "Buenos Aires",
     "addressCountry": "AR"
   },
-  "sameAs": [
-    "https://www.mercadolibre.com.ar/perfil/ECOTRAILPILAR",
-    "https://ecotrail.mitiendanube.com/",
-    "https://wa.me/5491159484880"
-  ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
@@ -1026,8 +1056,27 @@
     "worstRating": "1"
   },
   "priceRange": "$$",
-  "areaServed": "AR",
-  "keywords": "trailer bicicleta, remolque bici, carro carga, EcotrailPilar"
+  "areaServed": "AR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://ecotrailpilar.com.ar/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Modelos",
+      "item": "https://ecotrailpilar.com.ar/#modelos"
+    }
+  ]
 }
 </script>
 </body>
