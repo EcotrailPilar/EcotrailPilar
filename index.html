@@ -550,6 +550,48 @@
             color: var(--text-muted);
         }
 
+        /* Social Media Section */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 2rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .social-icon i {
+            font-size: 1.4rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .social-icon:hover i {
+            color: var(--white);
+        }
+
         /* Footer */
         footer {
             background: var(--primary);
@@ -690,6 +732,13 @@
             .products-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+            .social-links {
+                gap: 1rem;
+            }
+            .social-icon {
+                padding: 0.7rem 1.4rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -947,6 +996,31 @@
                     <div class="faq-content">Se entregan semi-armados con instrucciones claras. El armado es muy sencillo y no requiere herramientas especiales. Podés ver tutoriales en nuestro canal de YouTube.</div>
                 </details>
             </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN DE REDES SOCIALES -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seguinos en nuestras redes</h2>
+                <p>Conocé más sobre EcotrailPilar, novedades, promociones y todo lo que hacemos día a día.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i> <span>Instagram</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i> <span>Facebook</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i> <span>YouTube</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i> <span>TikTok</span>
+                </a>
+            </div>
+            <!-- Reemplazar los href="#"" por las URLs oficiales de las redes sociales de EcotrailPilar -->
         </div>
     </section>
 </main>
