@@ -256,6 +256,20 @@
             align-items: center;
         }
 
+        /* Nuevo estilo para el tag sobre el título */
+        .hero-tag {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(2px);
+        }
+
         .hero-text h1 {
             font-size: clamp(2.2rem, 5vw, 4rem);
             margin-bottom: 1.5rem;
@@ -919,7 +933,9 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
-                <h1>EcotrailPilar: <span style="color:var(--accent);">Tráileres para bicicleta</span> para trabajo de verdad, recreación y transporte sustentable</h1>
+                <!-- Nuevo hero-tag -->
+                <div class="hero-tag"><i class="fas fa-bicycle"></i> 100% Industria Argentina · Enganche universal</div>
+                <h1>Tráileres para bicicleta: <span style="color:var(--accent);">Trabajo, recreación y transporte sustentable</span></h1>
                 <p>Fabricantes líderes en Argentina. Tráileres versátiles con enganche universal, ideales para emprendedores, reparto urbano, pesca deportiva, camping, mudanzas y uso cotidiano. Soluciones sustentables que se adaptan a tu estilo de vida. ¡Envíos a todo el país!</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="#modelos" class="btn btn-primary">Explorar modelos EcotrailPilar</a>
