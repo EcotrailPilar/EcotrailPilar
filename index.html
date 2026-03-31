@@ -21,8 +21,12 @@
     <meta name="twitter:title" content="EcotrailPilar | Tráileres para bicicleta: trabajo, recreación y sustentabilidad">
     <meta name="twitter:description" content="Descubrí los múltiples usos de los tráileres EcotrailPilar: reparto urbano, aventuras outdoor, transporte ecológico y mucho más. Calidad argentina.">
     <meta name="twitter:image" content="assets/images/tetp.jpeg">
+    <!-- Preconexiones para mejorar rendimiento -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.youtube.com">
+    <!-- Precarga de la imagen principal (LCP) -->
+    <link rel="preload" as="image" href="assets/images/tetp.jpeg" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -59,6 +63,22 @@
             background-color: var(--white);
             line-height: 1.5;
             overflow-x: hidden;
+        }
+
+        /* Skip to content link para accesibilidad */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 200;
+            text-decoration: none;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
         }
 
         .container {
@@ -132,6 +152,12 @@
             border-color: var(--primary);
             color: var(--primary);
             background: rgba(10, 17, 40, 0.02);
+        }
+
+        /* Mejora de foco para accesibilidad */
+        a:focus-visible, button:focus-visible, .btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
         }
 
         header {
@@ -256,7 +282,6 @@
             align-items: center;
         }
 
-        /* Nuevo estilo para el tag sobre el título */
         .hero-tag {
             display: inline-block;
             background: rgba(245, 158, 11, 0.12);
@@ -334,7 +359,6 @@
             color: var(--primary);
         }
 
-        /* Hacer clickable el item de ML */
         .trust-item a {
             text-decoration: none;
             color: inherit;
@@ -826,7 +850,6 @@
             transform: translateY(-3px);
         }
 
-        /* Scroll reveal */
         .reveal {
             opacity: 0;
             transform: translateY(20px);
@@ -912,6 +935,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
 <header>
     <div class="container header-content">
@@ -919,7 +943,7 @@
         <button class="menu-toggle" aria-label="Menú" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
-        <nav class="nav-links">
+        <nav class="nav-links" aria-label="Navegación principal">
             <a href="#modelos">Modelos EcotrailPilar</a>
             <a href="#ingenieria">Ingeniería Argentina</a>
             <a href="#faq">Preguntas Frecuentes</a>
@@ -929,11 +953,10 @@
     </div>
 </header>
 
-<main>
+<main id="main-content">
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
-                <!-- Nuevo hero-tag -->
                 <div class="hero-tag"><i class="fas fa-bicycle"></i> 100% Industria Argentina · Enganche universal</div>
                 <h1>Tráileres para bicicleta: <span style="color:var(--accent);">Trabajo, recreación y transporte sustentable</span></h1>
                 <p>Fabricantes líderes en Argentina. Tráileres versátiles con enganche universal, ideales para emprendedores, reparto urbano, pesca deportiva, camping, mudanzas y uso cotidiano. Soluciones sustentables que se adaptan a tu estilo de vida. ¡Envíos a todo el país!</p>
@@ -943,7 +966,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/images/tetp.jpeg" alt="Trailer EcotrailPilar en uso - remolque para bicicleta argentino de múltiples aplicaciones" loading="eager">
+                <img src="assets/images/tetp.jpeg" alt="Trailer EcotrailPilar en uso - remolque para bicicleta argentino de múltiples aplicaciones" fetchpriority="high" width="800" height="600" loading="eager">
             </div>
         </div>
     </section>
@@ -1016,8 +1039,8 @@
                 </div>
             </div>
             <div class="video-container">
-                <!-- Reemplazar el ID del video (dQw4w9WgXcQ) por el ID real de YouTube -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=ejemplo" title="Demostración EcotrailPilar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Reemplazar el ID del video por el real de EcotrailPilar -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=ejemplo" title="Video demostrativo de los tráileres EcotrailPilar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -1031,7 +1054,7 @@
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="assets/images/urbano.jpeg" alt="EcotrailPilar Urbano Clásico - trailer para bicicleta carga liviana y reparto urbano" loading="lazy">
+                        <img src="assets/images/urbano.jpeg" alt="EcotrailPilar Urbano Clásico - trailer para bicicleta carga liviana y reparto urbano" loading="lazy" width="400" height="300">
                     </div>
                     <div class="product-info">
                         <h3>Urbano Clásico</h3>
@@ -1049,7 +1072,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="assets/images/utilitario.jpeg" alt="EcotrailPilar Utilitario Enrejado - remolque bici carga pesada con malla de acero" loading="lazy">
+                        <img src="assets/images/utilitario.jpeg" alt="EcotrailPilar Utilitario Enrejado - remolque bici carga pesada con malla de acero" loading="lazy" width="400" height="300">
                     </div>
                     <div class="product-info">
                         <h3>Utilitario Enrejado</h3>
@@ -1067,7 +1090,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="assets/images/playo.jpeg" alt="EcotrailPilar Playo XL - carro bicicleta base plana para cargas voluminosas" loading="lazy">
+                        <img src="assets/images/playo.jpeg" alt="EcotrailPilar Playo XL - carro bicicleta base plana para cargas voluminosas" loading="lazy" width="400" height="300">
                     </div>
                     <div class="product-info">
                         <h3>Playo XL</h3>
@@ -1086,7 +1109,7 @@
                 <div class="product-card">
                     <span class="badge-new">Nuevo</span>
                     <div class="product-img">
-                        <img src="assets/images/pescador.jpeg" alt="EcotrailPilar Modelo Pescador - trailer para bicicleta playa y pesca con soportes" loading="lazy">
+                        <img src="assets/images/pescador.jpeg" alt="EcotrailPilar Modelo Pescador - trailer para bicicleta playa y pesca con soportes" loading="lazy" width="400" height="300">
                     </div>
                     <div class="product-info">
                         <h3>Modelo Pescador</h3>
@@ -1163,7 +1186,6 @@
         <div class="container">
             <div class="section-header"><h2>Seguinos en nuestras redes</h2><p>Conocé más sobre EcotrailPilar, novedades, promociones y todo lo que hacemos día a día.</p></div>
             <div class="social-links">
-                <!-- Reemplazar los # con las URLs reales de tus redes -->
                 <a href="https://www.instagram.com/ecotrailpilar/" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
                 <a href="https://www.facebook.com/ecotrailpilar" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
                 <a href="https://www.youtube.com/@ecotrailpilar" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
@@ -1188,10 +1210,8 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
 <script>
-    // Año dinámico
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Menú móvil
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle) {
@@ -1208,7 +1228,6 @@
         });
     }
 
-    // Botón volver arriba
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 400) backToTopBtn.classList.add('visible');
@@ -1219,7 +1238,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Active link highlighting on scroll
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-links a');
     function highlightNav() {
@@ -1233,6 +1251,9 @@
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${currentId}`) {
                         link.classList.add('active');
+                        link.setAttribute('aria-current', 'page');
+                    } else {
+                        link.removeAttribute('aria-current');
                     }
                 });
             }
@@ -1241,7 +1262,6 @@
     window.addEventListener('scroll', highlightNav);
     window.addEventListener('load', highlightNav);
 
-    // Scroll reveal (Intersection Observer)
     const revealElements = document.querySelectorAll('.product-card, .benefit-card, .review-card, .step-card, .app-card');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1260,27 +1280,38 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "EcotrailPilar",
-  "url": "https://ecotrailpilar.com.ar/",
-  "logo": "https://ecotrailpilar.com.ar/assets/images/logo-ecotrail.png",
-  "sameAs": ["https://www.mercadolibre.com.ar/perfil/ECOTRAILPILAR","https://ecotrail.mitiendanube.com/","https://wa.me/5491159484880"]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "EcotrailPilar",
   "alternateName": "Ecotrail Pilar Trailers",
   "description": "Fabricantes de tráileres para bicicleta versátiles en Argentina. Ideales para trabajo, recreación y transporte sustentable. Venta directa y envíos a todo el país.",
   "url": "https://ecotrailpilar.com.ar/",
+  "logo": "https://ecotrailpilar.com.ar/assets/images/logo-ecotrail.png",
   "image": "https://ecotrailpilar.com.ar/assets/images/tetp.jpeg",
   "telephone": "+5491159484880",
-  "address": {"@type": "PostalAddress","addressLocality": "Pilar","addressRegion": "Buenos Aires","addressCountry": "AR"},
-  "aggregateRating": {"@type": "AggregateRating","ratingValue": "5.0","reviewCount": "38","bestRating": "5","worstRating": "1"},
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pilar",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "38",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "priceRange": "$$",
-  "areaServed": "AR"
+  "areaServed": "AR",
+  "sameAs": [
+    "https://www.mercadolibre.com.ar/perfil/ECOTRAILPILAR",
+    "https://ecotrail.mitiendanube.com/",
+    "https://wa.me/5491159484880",
+    "https://www.instagram.com/ecotrailpilar/",
+    "https://www.facebook.com/ecotrailpilar",
+    "https://www.youtube.com/@ecotrailpilar",
+    "https://www.tiktok.com/@ecotrailpilar"
+  ]
 }
 </script>
 </body>
