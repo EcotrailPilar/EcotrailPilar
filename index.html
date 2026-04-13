@@ -146,13 +146,29 @@
             backdrop-filter: blur(4px);
         }
 
+        /* Efecto de brillo deslizante en botones primarios */
         .btn-primary {
             background: linear-gradient(105deg, var(--primary) 0%, #1a2a4f 100%);
             color: var(--white);
             box-shadow: var(--shadow-sm);
             border: 1px solid rgba(255,255,255,0.1);
+            z-index: 1;
         }
-
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(115deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(25deg);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        .btn-primary:hover::after {
+            left: 100%;
+        }
         .btn-primary:hover {
             background: linear-gradient(105deg, #000000 0%, var(--primary-dark) 100%);
             transform: translateY(-3px);
@@ -171,14 +187,33 @@
             box-shadow: 0 10px 20px -5px rgba(37,211,102,0.4);
         }
 
+        /* Botón MercadoLibre AMARILLO (nuevo estilo) */
+        .btn-ml {
+            background: linear-gradient(105deg, var(--ml-yellow) 0%, #ffd000 100%);
+            color: #0a1128 !important;
+            font-weight: 800;
+            border: none;
+            box-shadow: 0 2px 8px rgba(255,230,0,0.3);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-ml i {
+            color: #0a1128;
+        }
+        .btn-ml:hover {
+            background: linear-gradient(105deg, #ffd000 0%, #f5c400 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(255,230,0,0.5);
+        }
+
         .btn-outline {
             border: 1.5px solid var(--border);
             background: rgba(255,255,255,0.9);
-            color: #1e293b; /* Mejor contraste */
+            color: #1e293b;
             font-weight: 600;
             backdrop-filter: blur(4px);
         }
-
         .btn-outline:hover {
             border-color: var(--accent);
             color: var(--primary);
@@ -318,6 +353,7 @@
             padding: 4rem 0 3rem;
             position: relative;
             background: radial-gradient(circle at 10% 20%, rgba(245,158,11,0.02) 0%, rgba(255,255,255,0) 70%);
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero-grid {
@@ -363,18 +399,20 @@
             border-radius: 2rem;
             overflow: hidden;
             box-shadow: var(--shadow-lg);
-            transition: transform 0.3s;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-
+        .hero-image:hover {
+            transform: scale(1.01);
+            box-shadow: var(--shadow-hover);
+        }
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
         }
-
         .hero-image:hover img {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         .trust-bar {
@@ -402,10 +440,10 @@
         .trust-item i {
             font-size: 2rem;
             color: var(--accent);
-            transition: transform 0.2s;
+            transition: transform 0.3s ease;
         }
         .trust-item:hover i {
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
         }
         .trust-item span {
             font-weight: 700;
@@ -441,8 +479,8 @@
         }
 
         .benefit-card:hover, .product-card:hover, .review-card:hover, .step-card:hover, .app-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(245,158,11,0.3);
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(245,158,11,0.4);
             box-shadow: var(--shadow-hover);
         }
 
@@ -450,10 +488,10 @@
             font-size: 2.5rem;
             color: var(--accent);
             margin-bottom: 1.5rem;
-            transition: transform 0.2s;
+            transition: transform 0.3s ease;
         }
         .benefit-card:hover i, .app-card:hover i {
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(2deg);
         }
 
         .section-header {
@@ -517,6 +555,7 @@
             text-transform: uppercase;
             z-index: 2;
             box-shadow: 0 2px 8px rgba(220,38,38,0.3);
+            animation: pulse 2s infinite;
         }
         .product-img {
             width: 100%;
@@ -533,10 +572,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s;
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
         }
         .product-card:hover .product-img img {
-            transform: scale(1.04);
+            transform: scale(1.06);
         }
         .product-info h3 {
             font-size: 1.4rem;
@@ -602,6 +641,11 @@
             justify-content: center;
             margin-bottom: 1rem;
             box-shadow: 0 8px 14px -6px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .step-card:hover .step-number {
+            transform: scale(1.1);
+            background: var(--accent);
         }
 
         @media (max-width: 768px) {
@@ -639,6 +683,10 @@
             position: relative;
             background: #000;
             border: 1px solid rgba(245,158,11,0.2);
+            transition: transform 0.3s;
+        }
+        .video-container:hover {
+            transform: scale(1.01);
         }
         .video-container iframe {
             width: 100%;
@@ -677,7 +725,7 @@
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: var(--accent);
-            transition: transform 0.25s;
+            transition: transform 0.3s ease;
         }
         details[open] summary:after {
             transform: rotate(45deg);
@@ -710,7 +758,7 @@
         }
         .social-icon i {
             font-size: 1.4rem;
-            transition: transform 0.2s;
+            transition: transform 0.3s;
         }
         .social-icon:hover {
             background: linear-gradient(105deg, var(--primary), #1e2a4a);
@@ -720,7 +768,7 @@
             box-shadow: var(--shadow-lg);
         }
         .social-icon:hover i {
-            transform: scale(1.1);
+            transform: scale(1.2);
             color: white;
         }
 
@@ -800,6 +848,7 @@
             color: var(--primary);
         }
 
+        /* Botón flotante WhatsApp con pulso */
         .fab-wa {
             position: fixed;
             bottom: 1.5rem;
@@ -817,11 +866,13 @@
             transition: all 0.25s;
             z-index: 100;
             text-decoration: none;
+            animation: pulse-wa 2s infinite;
         }
         .fab-wa:hover {
-            transform: scale(1.12) rotate(2deg);
+            transform: scale(1.15) rotate(4deg);
             background: #20b859;
-            box-shadow: 0 15px 30px -8px rgba(37,211,102,0.6);
+            box-shadow: 0 15px 30px -8px rgba(37,211,102,0.7);
+            animation: none;
         }
 
         .back-to-top {
@@ -853,15 +904,37 @@
             transform: translateY(-4px);
         }
 
+        /* Animaciones mejoradas */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         .reveal {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.5s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
         .reveal.revealed {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Retraso escalonado para las tarjetas (se aplica con JS) */
+        .reveal.revealed:nth-child(1) { transition-delay: 0.05s; }
+        .reveal.revealed:nth-child(2) { transition-delay: 0.1s; }
+        .reveal.revealed:nth-child(3) { transition-delay: 0.15s; }
+        .reveal.revealed:nth-child(4) { transition-delay: 0.2s; }
 
         @media (max-width: 992px) {
             .hero-grid, .benefits-grid, .reviews-grid, .footer-grid {
@@ -880,10 +953,7 @@
             .btn { padding: 0.6rem 1.2rem; font-size: 0.75rem; }
             .product-price { font-size: 1.5rem; }
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+
         .brand-highlight {
             background: linear-gradient(125deg, var(--accent), #ffb347);
             background-clip: text;
@@ -987,7 +1057,7 @@
             </div>
             <div class="products-grid">
                 <!-- Producto 1: Urbano Clásico -->
-                <div class="product-card">
+                <div class="product-card reveal">
                     <div class="product-img"><img src="assets/images/urbano.webp" alt="EcotrailPilar Urbano Clásico" loading="lazy" width="400" height="300"></div>
                     <div class="product-info">
                         <h3>Urbano Clásico</h3>
@@ -1001,11 +1071,11 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <!-- Producto 2: Utilitario Enrejado -->
-                <div class="product-card">
+                <div class="product-card reveal">
                     <div class="product-img"><img src="assets/images/utilitario.webp" alt="EcotrailPilar Utilitario Enrejado" loading="lazy" width="400" height="300"></div>
                     <div class="product-info">
                         <h3>Utilitario Enrejado</h3>
@@ -1019,11 +1089,11 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/trailer-remolque-bicicleta-utilitario-reforzado-nacional/" target="_blank" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <!-- Producto 3: Playo XL -->
-                <div class="product-card">
+                <div class="product-card reveal">
                     <div class="product-img"><img src="assets/images/playo.webp" alt="EcotrailPilar Playo XL" loading="lazy" width="400" height="300"></div>
                     <div class="product-info">
                         <h3>Playo XL</h3>
@@ -1037,11 +1107,11 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <!-- Producto 4: Modelo Pescador -->
-                <div class="product-card">
+                <div class="product-card reveal">
                     <span class="badge-new">Nuevo</span>
                     <div class="product-img"><img src="assets/images/pescador.webp" alt="EcotrailPilar Modelo Pescador" loading="lazy" width="400" height="300"></div>
                     <div class="product-info">
@@ -1056,7 +1126,7 @@
                     </div>
                     <div class="product-actions">
                         <a href="https://ecotrail.mitiendanube.com/productos/carrito-trailer-para-bicicleta-de-carga-pesca-playa-80kg/" target="_blank" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" class="btn btn-outline"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
             </div>
@@ -1070,10 +1140,10 @@
                 <p>Simple, rápido y seguro. Elegí el modelo que más te guste y completá tu compra.</p>
             </div>
             <div class="steps-grid">
-                <div class="step-card"><div class="step-number">1</div><h3>Elegí tu modelo</h3><p>Explorá nuestra flota y seleccioná el tráiler que mejor se adapte a tus necesidades.</p></div>
-                <div class="step-card"><div class="step-number">2</div><h3>Pagá como prefieras</h3><p>Mercado Pago, transferencia, tarjetas en cuotas. Todos los medios aceptados.</p></div>
-                <div class="step-card"><div class="step-number">3</div><h3>Recibilo en tu domicilio</h3><p>Enviamos a todo el país con correo privado u OCA. Coordinamos el envío a tu puerta.</p></div>
-                <div class="step-card"><div class="step-number">4</div><h3>Disfrutá tu tráiler</h3><p>Armado sencillo, manual incluido y soporte postventa. ¡A pedalear con carga!</p></div>
+                <div class="step-card reveal"><div class="step-number">1</div><h3>Elegí tu modelo</h3><p>Explorá nuestra flota y seleccioná el tráiler que mejor se adapte a tus necesidades.</p></div>
+                <div class="step-card reveal"><div class="step-number">2</div><h3>Pagá como prefieras</h3><p>Mercado Pago, transferencia, tarjetas en cuotas. Todos los medios aceptados.</p></div>
+                <div class="step-card reveal"><div class="step-number">3</div><h3>Recibilo en tu domicilio</h3><p>Enviamos a todo el país con correo privado u OCA. Coordinamos el envío a tu puerta.</p></div>
+                <div class="step-card reveal"><div class="step-number">4</div><h3>Disfrutá tu tráiler</h3><p>Armado sencillo, manual incluido y soporte postventa. ¡A pedalear con carga!</p></div>
             </div>
         </div>
     </section>
@@ -1085,9 +1155,9 @@
                 <p>Líderes en fabricación de tráileres para bicicleta con respaldo de cientos de clientes satisfechos en todo Argentina.</p>
             </div>
             <div class="benefits-grid">
-                <div class="benefit-card"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i><h3>Mejor relación precio-calidad</h3><p>Ofrecemos tráileres robustos con los mejores materiales del mercado al precio más competitivo. Financiación en cuotas.</p></div>
-                <div class="benefit-card"><i class="fas fa-tools" aria-hidden="true"></i><h3>Postventa y repuestos</h3><p>Contamos con servicio de repuestos y atención personalizada para que tu EcotrailPilar dure toda la vida.</p></div>
-                <div class="benefit-card"><i class="fas fa-map-marked-alt" aria-hidden="true"></i><h3>Más de 500 unidades vendidas</h3><p>Clientes en todo el país confían en nuestros remolques para bicicleta para reparto, camping y logística sustentable.</p></div>
+                <div class="benefit-card reveal"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i><h3>Mejor relación precio-calidad</h3><p>Ofrecemos tráileres robustos con los mejores materiales del mercado al precio más competitivo. Financiación en cuotas.</p></div>
+                <div class="benefit-card reveal"><i class="fas fa-tools" aria-hidden="true"></i><h3>Postventa y repuestos</h3><p>Contamos con servicio de repuestos y atención personalizada para que tu EcotrailPilar dure toda la vida.</p></div>
+                <div class="benefit-card reveal"><i class="fas fa-map-marked-alt" aria-hidden="true"></i><h3>Más de 500 unidades vendidas</h3><p>Clientes en todo el país confían en nuestros remolques para bicicleta para reparto, camping y logística sustentable.</p></div>
             </div>
         </div>
     </section>
@@ -1096,9 +1166,9 @@
         <div class="container">
             <div class="section-header"><h2>Lo que dicen en el terreno</h2></div>
             <div class="reviews-grid">
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Compré el Enrejado para mi reparto de ferretería. Lo cargo con cajas pesadas y ni se mueve. La estructura es un tanque. EcotrailPilar calidad total."</p><div class="review-author">Martín G. - Usuario de MercadoLibre</div></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Excelente terminación. El enganche a la bici (rodado 29) quedó perfecto en 5 minutos. Muy recomendable, marca argentina confiable."</p><div class="review-author">Diego F. - Compra Directa</div></div>
-                <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Llevé el Playo XL a la costa. Carga la conservadora, las reposeras y la sombrilla sin problemas por la arena. EcotrailPilar se banca todo."</p><div class="review-author">Lucía M. - Cliente Pilar</div></div>
+                <div class="review-card reveal"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Compré el Enrejado para mi reparto de ferretería. Lo cargo con cajas pesadas y ni se mueve. La estructura es un tanque. EcotrailPilar calidad total."</p><div class="review-author">Martín G. - Usuario de MercadoLibre</div></div>
+                <div class="review-card reveal"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Excelente terminación. El enganche a la bici (rodado 29) quedó perfecto en 5 minutos. Muy recomendable, marca argentina confiable."</p><div class="review-author">Diego F. - Compra Directa</div></div>
+                <div class="review-card reveal"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Llevé el Playo XL a la costa. Carga la conservadora, las reposeras y la sombrilla sin problemas por la arena. EcotrailPilar se banca todo."</p><div class="review-author">Lucía M. - Cliente Pilar</div></div>
             </div>
         </div>
     </section>
@@ -1212,7 +1282,9 @@
     }
     window.addEventListener('scroll', highlightNav);
     window.addEventListener('load', highlightNav);
-    const revealElements = document.querySelectorAll('.product-card, .benefit-card, .review-card, .step-card, .app-card');
+    
+    // Intersection Observer mejorado con retraso escalonado
+    const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1220,8 +1292,8 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => { el.classList.add('reveal'); observer.observe(el); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealElements.forEach(el => observer.observe(el));
 </script>
 <script type="application/ld+json">
 {
