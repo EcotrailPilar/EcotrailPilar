@@ -55,7 +55,7 @@
             --accent-light: #ffb347;
             --accent-glow: rgba(245, 158, 11, 0.2);
             --text-dark: #0f172a;
-            --text-muted: #334155; /* Mejor contraste */
+            --text-muted: #334155;
             --bg-light: #f8fafc;
             --white: #ffffff;
             --border: #e2e8f0;
@@ -215,7 +215,7 @@
             border-radius: 60px;
         }
 
-        /* Header dinámico (scrolled) */
+        /* Header inteligente: se oculta al bajar, aparece al subir */
         header {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
@@ -224,7 +224,10 @@
             top: 0;
             z-index: 100;
             padding: 0.8rem 0;
-            transition: padding 0.3s ease, background 0.3s;
+            transition: transform 0.4s ease, padding 0.3s ease, background 0.3s;
+        }
+        header.header-hidden {
+            transform: translateY(-100%);
         }
         header.scrolled {
             padding: 0.4rem 0;
@@ -602,6 +605,39 @@
             gap: 0.75rem;
         }
 
+        /* Tabla comparativa */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin-top: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-md);
+            background: var(--white);
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+        }
+        .comparison-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dark);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .model-name {
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .comparison-table i.fa-check { color: var(--accent); }
+        .comparison-table i.fa-times { color: #cbd5e1; }
+
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -870,11 +906,6 @@
             transform: translateY(0);
         }
 
-        .reveal.revealed:nth-child(1) { transition-delay: 0.05s; }
-        .reveal.revealed:nth-child(2) { transition-delay: 0.1s; }
-        .reveal.revealed:nth-child(3) { transition-delay: 0.15s; }
-        .reveal.revealed:nth-child(4) { transition-delay: 0.2s; }
-
         @media (max-width: 992px) {
             .hero-grid, .benefits-grid, .reviews-grid, .footer-grid { grid-template-columns: 1fr; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); }
@@ -909,6 +940,7 @@
         </button>
         <nav class="nav-links" id="primaryNav" aria-label="Navegación principal">
             <a href="#modelos" aria-current="page">Modelos EcotrailPilar</a>
+            <a href="#comparativa">Comparativa</a>
             <a href="#ingenieria">Ingeniería Argentina</a>
             <a href="#faq">Preguntas Frecuentes</a>
             <a href="#porque-elegirnos">¿Por qué elegirnos?</a>
@@ -993,7 +1025,7 @@
             <div class="products-grid">
                 <!-- Producto 1: Urbano Clásico -->
                 <div class="product-card reveal">
-                    <div class="product-img"><img src="assets/images/urbano.webp" alt="EcotrailPilar Urbano Clásico" loading="lazy" width="400" height="300"></div>
+                    <div class="product-img"><img src="assets/images/urbano.webp" alt="EcotrailPilar Urbano Clásico" loading="lazy" decoding="async" width="400" height="300"></div>
                     <div class="product-info">
                         <h3>Urbano Clásico</h3>
                         <div class="product-price">$390.000</div>
@@ -1005,13 +1037,13 @@
                         </ul>
                     </div>
                     <div class="product-actions">
-                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" class="btn btn-primary" aria-label="Comprar Urbano Clásico directo en tienda">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" rel="noopener" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" rel="noopener" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <!-- Producto 2: Utilitario Enrejado -->
                 <div class="product-card reveal">
-                    <div class="product-img"><img src="assets/images/utilitario.webp" alt="EcotrailPilar Utilitario Enrejado" loading="lazy" width="400" height="300"></div>
+                    <div class="product-img"><img src="assets/images/utilitario.webp" alt="EcotrailPilar Utilitario Enrejado" loading="lazy" decoding="async" width="400" height="300"></div>
                     <div class="product-info">
                         <h3>Utilitario Enrejado</h3>
                         <div class="product-price">$350.000</div>
@@ -1023,13 +1055,13 @@
                         </ul>
                     </div>
                     <div class="product-actions">
-                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-remolque-bicicleta-utilitario-reforzado-nacional/" target="_blank" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-remolque-bicicleta-utilitario-reforzado-nacional/" target="_blank" rel="noopener" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-remolque-bicicleta-utilitario-reforzado-nacional/up/MLAU2904394041" target="_blank" rel="noopener" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <!-- Producto 3: Playo XL -->
                 <div class="product-card reveal">
-                    <div class="product-img"><img src="assets/images/playo.webp" alt="EcotrailPilar Playo XL" loading="lazy" width="400" height="300"></div>
+                    <div class="product-img"><img src="assets/images/playo.webp" alt="EcotrailPilar Playo XL" loading="lazy" decoding="async" width="400" height="300"></div>
                     <div class="product-info">
                         <h3>Playo XL</h3>
                         <div class="product-price">$250.000</div>
@@ -1041,14 +1073,14 @@
                         </ul>
                     </div>
                     <div class="product-actions">
-                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" rel="noopener" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" rel="noopener" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
                 <!-- Producto 4: Modelo Pescador -->
                 <div class="product-card reveal">
                     <span class="badge-new">Nuevo</span>
-                    <div class="product-img"><img src="assets/images/pescador.webp" alt="EcotrailPilar Modelo Pescador" loading="lazy" width="400" height="300"></div>
+                    <div class="product-img"><img src="assets/images/pescador.webp" alt="EcotrailPilar Modelo Pescador" loading="lazy" decoding="async" width="400" height="300"></div>
                     <div class="product-info">
                         <h3>Modelo Pescador</h3>
                         <div class="product-price">$350.000</div>
@@ -1060,15 +1092,68 @@
                         </ul>
                     </div>
                     <div class="product-actions">
-                        <a href="https://ecotrail.mitiendanube.com/productos/carrito-trailer-para-bicicleta-de-carga-pesca-playa-80kg/" target="_blank" class="btn btn-primary">Comprar Directo</a>
-                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
+                        <a href="https://ecotrail.mitiendanube.com/productos/carrito-trailer-para-bicicleta-de-carga-pesca-playa-80kg/" target="_blank" rel="noopener" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-ecotrail-pilar-pescador-carga/up/MLAU3741941224" target="_blank" rel="noopener" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding bg-light">
+    <!-- Nueva sección: Comparativa de modelos -->
+    <section id="comparativa" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comparativa de modelos</h2>
+                <p>Elegí el tráiler que mejor se adapta a tu estilo de vida. Todos incluyen enganche universal y garantía de fábrica.</p>
+            </div>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Capacidad</th>
+                            <th>Peso</th>
+                            <th>Uso recomendado</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="model-name">Urbano Clásico</td>
+                            <td>80 kg</td>
+                            <td>12 kg</td>
+                            <td>Reparto, compras diarias</td>
+                            <td>$390.000</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Utilitario Enrejado</td>
+                            <td>80 kg</td>
+                            <td>14 kg</td>
+                            <td>Cargas voluminosas, herramientas</td>
+                            <td>$350.000</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Playo XL</td>
+                            <td>80 kg</td>
+                            <td>11 kg</td>
+                            <td>Mudanzas, cajas grandes</td>
+                            <td>$250.000</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Pescador</td>
+                            <td>70 kg</td>
+                            <td>13 kg</td>
+                            <td>Pesca, playa, terrenos blandos</td>
+                            <td>$350.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
         <div class="container">
             <div class="section-header">
                 <h2>¿Cómo comprar tu EcotrailPilar?</h2>
@@ -1083,7 +1168,7 @@
         </div>
     </section>
 
-    <section id="porque-elegirnos" class="section-padding">
+    <section id="porque-elegirnos" class="section-padding bg-light">
         <div class="container">
             <div class="section-header">
                 <h2>¿Por qué EcotrailPilar es tu mejor opción?</h2>
@@ -1097,7 +1182,7 @@
         </div>
     </section>
 
-    <section class="section-padding bg-light">
+    <section class="section-padding">
         <div class="container">
             <div class="section-header"><h2>Lo que dicen en el terreno</h2></div>
             <div class="reviews-grid">
@@ -1108,7 +1193,7 @@
         </div>
     </section>
 
-    <section id="faq" class="section-padding">
+    <section id="faq" class="section-padding bg-light">
         <div class="container">
             <div class="section-header"><h2>Preguntas Frecuentes sobre Tráileres EcotrailPilar</h2></div>
             <div class="faq-container">
@@ -1121,14 +1206,14 @@
         </div>
     </section>
 
-    <section class="section-padding bg-light">
+    <section class="section-padding">
         <div class="container">
             <div class="section-header"><h2>Seguinos en nuestras redes</h2><p>Conocé más sobre EcotrailPilar, novedades, promociones y todo lo que hacemos día a día.</p></div>
             <div class="social-links">
-                <a href="https://www.instagram.com/ecotrailpilar/" target="_blank" class="social-icon" aria-label="Instagram EcotrailPilar"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
-                <a href="https://www.facebook.com/ecotrailpilar" target="_blank" class="social-icon" aria-label="Facebook EcotrailPilar"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
-                <a href="https://www.youtube.com/@ecotrailpilar" target="_blank" class="social-icon" aria-label="YouTube EcotrailPilar"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
-                <a href="https://www.tiktok.com/@ecotrailpilar" target="_blank" class="social-icon" aria-label="TikTok EcotrailPilar"><i class="fab fa-tiktok"></i> <span>TikTok</span></a>
+                <a href="https://www.instagram.com/ecotrailpilar/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram EcotrailPilar"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
+                <a href="https://www.facebook.com/ecotrailpilar" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook EcotrailPilar"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
+                <a href="https://www.youtube.com/@ecotrailpilar" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube EcotrailPilar"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
+                <a href="https://www.tiktok.com/@ecotrailpilar" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok EcotrailPilar"><i class="fab fa-tiktok"></i> <span>TikTok</span></a>
             </div>
         </div>
     </section>
@@ -1149,6 +1234,7 @@
                 <h4>Navegación</h4>
                 <ul class="footer-links">
                     <li><a href="#modelos">Catálogo EcotrailPilar</a></li>
+                    <li><a href="#comparativa">Comparativa de modelos</a></li>
                     <li><a href="#ingenieria">Sobre la fabricación argentina</a></li>
                     <li><a href="#faq">Preguntas Frecuentes</a></li>
                     <li><a href="#porque-elegirnos">Beneficios exclusivos</a></li>
@@ -1158,7 +1244,7 @@
                 <h4>Contacto Directo</h4>
                 <p><i class="fab fa-whatsapp" aria-hidden="true"></i> +54 9 11 5948-4880</p>
                 <p><i class="fas fa-location-dot" aria-hidden="true"></i> Pilar, Buenos Aires, Argentina</p>
-                <a href="https://ecotrail.mitiendanube.com" target="_blank" class="btn btn-outline" style="border-color: #334155; color: white; margin-top: 0.5rem;" aria-label="Tienda oficial EcotrailPilar">Tienda Oficial</a>
+                <a href="https://ecotrail.mitiendanube.com" target="_blank" rel="noopener" class="btn btn-outline" style="border-color: #334155; color: white; margin-top: 0.5rem;" aria-label="Tienda oficial EcotrailPilar">Tienda Oficial</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1167,7 +1253,7 @@
     </div>
 </footer>
 
-<a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" class="fab-wa" aria-label="Chatear por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" rel="noopener" class="fab-wa" aria-label="Chatear por WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
 <script>
@@ -1188,7 +1274,10 @@
         const newsletterBtn = document.getElementById('newsletterBtn');
         const newsletterInput = document.getElementById('newsletterEmail');
 
-        // --- Menú móvil mejorado (overlay + escape + cierre automático) ---
+        let lastScroll = 0;
+        const scrollThreshold = 50;
+
+        // --- Menú móvil mejorado ---
         function openMenu() {
             navLinks.classList.add('open');
             overlay.classList.add('active');
@@ -1212,27 +1301,41 @@
         }
         overlay.addEventListener('click', closeMenu);
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMenu();
-            });
+            link.addEventListener('click', () => closeMenu());
         });
 
-        // Tecla Escape cierra menú
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navLinks.classList.contains('open')) {
                 closeMenu();
             }
         });
 
-        // --- Header compacto al hacer scroll ---
+        // --- Header inteligente (se oculta al bajar, aparece al subir) ---
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
+            const currentScroll = window.scrollY;
+            
+            // Control de clase scrolled (compacto)
+            if (currentScroll > 20) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
+            // Ocultar/mostrar según dirección
+            if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+                // Bajando
+                header.classList.add('header-hidden');
+                // Si el menú está abierto, lo cerramos
+                if (navLinks.classList.contains('open')) closeMenu();
+            } else {
+                // Subiendo
+                header.classList.remove('header-hidden');
+            }
+            
+            lastScroll = currentScroll;
+
             // Botón back to top
-            backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+            backToTopBtn.classList.toggle('visible', currentScroll > 400);
         });
 
         // --- Resaltado de navegación (aria-current) ---
@@ -1256,11 +1359,9 @@
         }
         window.addEventListener('scroll', highlightNav);
         window.addEventListener('load', highlightNav);
-        
-        // Asegurar que el primer enlace tenga aria-current al inicio (modelos visible)
         setTimeout(highlightNav, 100);
 
-        // --- Validación simple del newsletter ---
+        // --- Validación newsletter ---
         if (newsletterBtn && newsletterInput) {
             newsletterBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1295,8 +1396,6 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         revealElements.forEach(el => observer.observe(el));
-
-        // Ajuste para que el header sticky no tape anclas (scroll-padding ya lo maneja)
     })();
 </script>
 
