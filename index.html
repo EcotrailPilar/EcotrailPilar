@@ -10,6 +10,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://ecotrailpilar.com.ar/">
+    <meta name="theme-color" content="#0a1128">
     
     <!-- Favicon mejorado (texto EP) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a1128'/%3E%3Ctext x='50' y='72' font-family='Inter, sans-serif' font-size='55' font-weight='900' fill='%23f59e0b' text-anchor='middle'%3EEP%3C/text%3E%3C/svg%3E">
@@ -24,11 +25,20 @@
     <meta name="twitter:title" content="EcotrailPilar | Tráileres para bicicleta: trabajo, recreación y sustentabilidad">
     <meta name="twitter:description" content="Descubrí los múltiples usos de los tráileres EcotrailPilar: reparto urbano, aventuras outdoor, transporte ecológico y mucho más. Calidad argentina.">
     <meta name="twitter:image" content="assets/images/tetp.webp">
+    
+    <!-- Preconexiones para rendimiento -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://www.youtube.com">
+    
+    <!-- Precarga de fuente Inter (mejora LCP) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=fallback">
+    
+    <!-- Precarga de imagen hero (crítica) -->
     <link rel="preload" as="image" href="assets/images/tetp.webp" fetchpriority="high">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=fallback" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -45,7 +55,7 @@
             --accent-light: #ffb347;
             --accent-glow: rgba(245, 158, 11, 0.2);
             --text-dark: #0f172a;
-            --text-muted: #475569;
+            --text-muted: #334155; /* Mejor contraste */
             --bg-light: #f8fafc;
             --white: #ffffff;
             --border: #e2e8f0;
@@ -55,7 +65,7 @@
             --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
             --shadow-lg: 0 20px 40px -12px rgba(0,0,0,0.15);
             --shadow-hover: 0 25px 35px -12px rgba(0,0,0,0.2);
-            --transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            --transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
             --gradient-hero: linear-gradient(135deg, rgba(10,17,40,0.02) 0%, rgba(245,158,11,0.02) 100%);
             --gradient-card: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
         }
@@ -74,19 +84,10 @@
         }
 
         /* custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-light);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 12px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-light); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 12px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
         .skip-link {
             position: absolute;
@@ -101,9 +102,7 @@
             border-radius: 0 0 8px 0;
             font-weight: 600;
         }
-        .skip-link:focus {
-            top: 0;
-        }
+        .skip-link:focus { top: 0; }
 
         .container {
             max-width: 1280px;
@@ -117,13 +116,9 @@
             line-height: 1.2;
         }
 
-        .section-padding {
-            padding: 5rem 0;
-        }
+        .section-padding { padding: 5rem 0; }
 
-        .bg-light {
-            background: linear-gradient(120deg, #f9fafc 0%, #f1f5f9 100%);
-        }
+        .bg-light { background: linear-gradient(120deg, #f9fafc 0%, #f1f5f9 100%); }
 
         .btn {
             display: inline-flex;
@@ -144,9 +139,9 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(4px);
+            will-change: transform, box-shadow;
         }
 
-        /* Efecto de brillo deslizante en botones primarios */
         .btn-primary {
             background: linear-gradient(105deg, var(--primary) 0%, #1a2a4f 100%);
             color: var(--white);
@@ -166,9 +161,7 @@
             transition: left 0.6s ease;
             z-index: -1;
         }
-        .btn-primary:hover::after {
-            left: 100%;
-        }
+        .btn-primary:hover::after { left: 100%; }
         .btn-primary:hover {
             background: linear-gradient(105deg, #000000 0%, var(--primary-dark) 100%);
             transform: translateY(-3px);
@@ -187,20 +180,14 @@
             box-shadow: 0 10px 20px -5px rgba(37,211,102,0.4);
         }
 
-        /* Botón MercadoLibre AMARILLO (nuevo estilo) */
         .btn-ml {
             background: linear-gradient(105deg, var(--ml-yellow) 0%, #ffd000 100%);
             color: #0a1128 !important;
             font-weight: 800;
             border: none;
             box-shadow: 0 2px 8px rgba(255,230,0,0.3);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
-        .btn-ml i {
-            color: #0a1128;
-        }
+        .btn-ml i { color: #0a1128; }
         .btn-ml:hover {
             background: linear-gradient(105deg, #ffd000 0%, #f5c400 100%);
             transform: translateY(-3px);
@@ -228,6 +215,7 @@
             border-radius: 60px;
         }
 
+        /* Header dinámico (scrolled) */
         header {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
@@ -236,10 +224,16 @@
             top: 0;
             z-index: 100;
             padding: 0.8rem 0;
-            transition: all 0.2s;
+            transition: padding 0.3s ease, background 0.3s;
+        }
+        header.scrolled {
+            padding: 0.4rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-sm);
         }
         @media (max-width: 768px) {
             header { padding: 0.5rem 0; }
+            header.scrolled { padding: 0.3rem 0; }
         }
 
         .header-content {
@@ -261,7 +255,6 @@
             -webkit-background-clip: text;
             color: transparent;
         }
-
         .logo-highlight {
             background: linear-gradient(125deg, var(--accent) 0%, #ffb347 100%);
             background-clip: text;
@@ -274,7 +267,6 @@
             gap: 2rem;
             font-weight: 600;
         }
-
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
@@ -283,11 +275,9 @@
             position: relative;
             font-weight: 600;
         }
-
         .nav-links a.active {
             color: var(--accent);
         }
-
         .nav-links a.active::after {
             content: '';
             position: absolute;
@@ -298,10 +288,7 @@
             background: linear-gradient(90deg, var(--accent), var(--accent-light));
             border-radius: 2px;
         }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+        .nav-links a:hover { color: var(--primary); }
 
         .menu-toggle {
             display: none;
@@ -314,10 +301,27 @@
             touch-action: manipulation;
         }
 
+        /* Overlay para menú móvil */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(2px);
+            z-index: 98;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .mobile-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -334,6 +338,7 @@
                 transition: transform 0.3s ease, opacity 0.3s ease;
                 z-index: 99;
                 border-bottom: 1px solid var(--border);
+                will-change: transform, opacity;
             }
             .nav-links.open {
                 transform: translateY(0);
@@ -344,9 +349,7 @@
                 display: block;
                 text-align: center;
             }
-            .nav-links a.active::after {
-                display: none;
-            }
+            .nav-links a.active::after { display: none; }
         }
 
         .hero {
@@ -400,6 +403,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-lg);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            will-change: transform;
         }
         .hero-image:hover {
             transform: scale(1.01);
@@ -410,10 +414,9 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+            will-change: transform;
         }
-        .hero-image:hover img {
-            transform: scale(1.05);
-        }
+        .hero-image:hover img { transform: scale(1.05); }
 
         .trust-bar {
             border-top: 1px solid var(--border);
@@ -436,6 +439,7 @@
             align-items: center;
             gap: 0.6rem;
             transition: var(--transition);
+            will-change: transform;
         }
         .trust-item i {
             font-size: 2rem;
@@ -459,14 +463,8 @@
             gap: 0.6rem;
         }
 
-        .benefits-grid, .products-grid {
-            display: grid;
-            gap: 2rem;
-        }
-        .benefits-grid {
-            grid-template-columns: repeat(3, 1fr);
-            margin-top: 3rem;
-        }
+        .benefits-grid, .products-grid { display: grid; gap: 2rem; }
+        .benefits-grid { grid-template-columns: repeat(3, 1fr); margin-top: 3rem; }
 
         .benefit-card, .product-card, .review-card, .step-card, .app-card {
             background: var(--gradient-card);
@@ -476,6 +474,7 @@
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
             backdrop-filter: blur(2px);
+            will-change: transform, box-shadow;
         }
 
         .benefit-card:hover, .product-card:hover, .review-card:hover, .step-card:hover, .app-card:hover {
@@ -490,9 +489,7 @@
             margin-bottom: 1.5rem;
             transition: transform 0.3s ease;
         }
-        .benefit-card:hover i, .app-card:hover i {
-            transform: scale(1.1) rotate(2deg);
-        }
+        .benefit-card:hover i, .app-card:hover i { transform: scale(1.1) rotate(2deg); }
 
         .section-header {
             text-align: center;
@@ -526,22 +523,12 @@
         }
 
         @media (max-width: 768px) {
-            .applications-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
+            .applications-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .benefits-grid { grid-template-columns: 1fr; }
         }
 
-        .products-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .product-card {
-            position: relative;
-            padding: 1.8rem;
-        }
+        .products-grid { grid-template-columns: repeat(2, 1fr); }
+        .product-card { position: relative; padding: 1.8rem; }
         .badge-new {
             position: absolute;
             top: 1rem;
@@ -573,14 +560,10 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+            will-change: transform;
         }
-        .product-card:hover .product-img img {
-            transform: scale(1.06);
-        }
-        .product-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.25rem;
-        }
+        .product-card:hover .product-img img { transform: scale(1.06); }
+        .product-info h3 { font-size: 1.4rem; margin-bottom: 0.25rem; }
         .product-price {
             font-size: 1.9rem;
             font-weight: 900;
@@ -611,10 +594,7 @@
             color: var(--text-muted);
             margin-bottom: 0.5rem;
         }
-        .product-specs i {
-            color: var(--accent);
-            width: 1.1rem;
-        }
+        .product-specs i { color: var(--accent); width: 1.1rem; }
         .product-actions {
             margin-top: auto;
             display: flex;
@@ -649,12 +629,8 @@
         }
 
         @media (max-width: 768px) {
-            .steps-grid, .products-grid {
-                grid-template-columns: 1fr;
-            }
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
+            .steps-grid, .products-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
         }
 
         .reviews-grid {
@@ -663,17 +639,8 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-        .stars {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            letter-spacing: 2px;
-        }
-        .review-text {
-            font-style: normal;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
+        .stars { color: var(--accent); margin-bottom: 1rem; font-size: 1rem; letter-spacing: 2px; }
+        .review-text { font-style: normal; margin-bottom: 1.5rem; font-weight: 500; }
         .video-container {
             max-width: 800px;
             margin: 2rem auto 0;
@@ -685,19 +652,14 @@
             border: 1px solid rgba(245,158,11,0.2);
             transition: transform 0.3s;
         }
-        .video-container:hover {
-            transform: scale(1.01);
-        }
+        .video-container:hover { transform: scale(1.01); }
         .video-container iframe {
             width: 100%;
             aspect-ratio: 16 / 9;
             display: block;
         }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .faq-container { max-width: 800px; margin: 0 auto; }
         details {
             background: var(--white);
             border: 1px solid var(--border);
@@ -706,10 +668,7 @@
             overflow: hidden;
             transition: all 0.2s;
         }
-        details:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-sm);
-        }
+        details:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
         summary {
             padding: 1.25rem 1.8rem;
             font-weight: 700;
@@ -727,13 +686,8 @@
             color: var(--accent);
             transition: transform 0.3s ease;
         }
-        details[open] summary:after {
-            transform: rotate(45deg);
-        }
-        .faq-content {
-            padding: 0 1.8rem 1.8rem;
-            color: var(--text-muted);
-        }
+        details[open] summary:after { transform: rotate(45deg); }
+        .faq-content { padding: 0 1.8rem 1.8rem; color: var(--text-muted); }
 
         .social-links {
             display: flex;
@@ -756,10 +710,7 @@
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
         }
-        .social-icon i {
-            font-size: 1.4rem;
-            transition: transform 0.3s;
-        }
+        .social-icon i { font-size: 1.4rem; transition: transform 0.3s; }
         .social-icon:hover {
             background: linear-gradient(105deg, var(--primary), #1e2a4a);
             border-color: var(--primary);
@@ -767,10 +718,7 @@
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
-        .social-icon:hover i {
-            transform: scale(1.2);
-            color: white;
-        }
+        .social-icon:hover i { transform: scale(1.2); color: white; }
 
         footer {
             background: linear-gradient(105deg, #0a0f1c 0%, var(--primary) 100%);
@@ -807,16 +755,9 @@
             font-size: 0.9rem;
             transition: var(--transition);
         }
-        .footer-links {
-            list-style: none;
-        }
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-        .footer-links a:hover {
-            color: var(--accent);
-            padding-left: 0.3rem;
-        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a:hover { color: var(--accent); padding-left: 0.3rem; }
         .footer-bottom {
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -838,9 +779,7 @@
             color: white;
             border: 1px solid rgba(255,255,255,0.2);
         }
-        .newsletter-box input::placeholder {
-            color: #94a3b8;
-        }
+        .newsletter-box input::placeholder { color: #94a3b8; }
         .newsletter-box .btn {
             padding: 0.7rem 1.2rem;
             font-size: 0.8rem;
@@ -848,7 +787,6 @@
             color: var(--primary);
         }
 
-        /* Botón flotante WhatsApp con pulso */
         .fab-wa {
             position: fixed;
             bottom: 1.5rem;
@@ -867,6 +805,7 @@
             z-index: 100;
             text-decoration: none;
             animation: pulse-wa 2s infinite;
+            will-change: transform;
         }
         .fab-wa:hover {
             transform: scale(1.15) rotate(4deg);
@@ -894,6 +833,7 @@
             z-index: 100;
             text-decoration: none;
             box-shadow: var(--shadow-md);
+            will-change: opacity;
         }
         .back-to-top.visible {
             opacity: 1;
@@ -904,7 +844,6 @@
             transform: translateY(-4px);
         }
 
-        /* Animaciones mejoradas */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -924,28 +863,22 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+            will-change: transform, opacity;
         }
         .reveal.revealed {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Retraso escalonado para las tarjetas (se aplica con JS) */
         .reveal.revealed:nth-child(1) { transition-delay: 0.05s; }
         .reveal.revealed:nth-child(2) { transition-delay: 0.1s; }
         .reveal.revealed:nth-child(3) { transition-delay: 0.15s; }
         .reveal.revealed:nth-child(4) { transition-delay: 0.2s; }
 
         @media (max-width: 992px) {
-            .hero-grid, .benefits-grid, .reviews-grid, .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .trust-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .section-padding {
-                padding: 3rem 0;
-            }
+            .hero-grid, .benefits-grid, .reviews-grid, .footer-grid { grid-template-columns: 1fr; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .section-padding { padding: 3rem 0; }
         }
         @media (max-width: 768px) {
             .container { padding: 0 1.25rem; }
@@ -965,20 +898,22 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <!-- Overlay móvil -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
 
-<header>
+<header id="mainHeader">
     <div class="container header-content">
         <a href="#" class="logo" aria-label="EcotrailPilar - Inicio">Ecotrail<span class="logo-highlight">Pilar</span></a>
-        <button class="menu-toggle" aria-label="Menú" aria-expanded="false">
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primaryNav">
             <i class="fas fa-bars"></i>
         </button>
-        <nav class="nav-links" aria-label="Navegación principal">
-            <a href="#modelos">Modelos EcotrailPilar</a>
+        <nav class="nav-links" id="primaryNav" aria-label="Navegación principal">
+            <a href="#modelos" aria-current="page">Modelos EcotrailPilar</a>
             <a href="#ingenieria">Ingeniería Argentina</a>
             <a href="#faq">Preguntas Frecuentes</a>
             <a href="#porque-elegirnos">¿Por qué elegirnos?</a>
         </nav>
-        <a href="https://ecotrail.mitiendanube.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver Catálogo</a>
+        <a href="https://ecotrail.mitiendanube.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Ver catálogo de productos (se abre en nueva pestaña)">Ver Catálogo</a>
     </div>
 </header>
 
@@ -986,12 +921,12 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
-                <div class="hero-tag"><i class="fas fa-bicycle"></i> 100% Industria Argentina · Enganche universal</div>
+                <div class="hero-tag"><i class="fas fa-bicycle" aria-hidden="true"></i> 100% Industria Argentina · Enganche universal</div>
                 <h1>Aumentá tu capacidad de carga hasta <span style="color:var(--accent);">80kg SIN nafta</span></h1>
                 <p>Tráileres argentinos robustos para bicicleta. Enganche universal, múltiples usos: reparto, camping, pesca, mudanzas ecológicas. Fabricación líder en Pilar.</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="#modelos" class="btn btn-primary">Explorar modelos</a>
-                    <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" rel="noopener noreferrer" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
+                    <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" rel="noopener noreferrer" class="btn btn-wa" aria-label="Consultar por WhatsApp"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -1006,14 +941,14 @@
 
     <div class="trust-bar">
         <div class="container trust-grid">
-            <div class="trust-item"><i class="fas fa-truck-fast"></i><span>Envíos a todo el país</span></div>
-            <div class="trust-item"><i class="fas fa-shield-halved"></i><span>Garantía de Fábrica</span></div>
+            <div class="trust-item"><i class="fas fa-truck-fast" aria-hidden="true"></i><span>Envíos a todo el país</span></div>
+            <div class="trust-item"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>Garantía de Fábrica</span></div>
             <div class="trust-item">
-                <a href="https://www.mercadolibre.com.ar/perfil/ECOTRAILPILAR" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-star"></i><span>100% Positivo en ML</span>
+                <a href="https://www.mercadolibre.com.ar/perfil/ECOTRAILPILAR" target="_blank" rel="noopener noreferrer" aria-label="Perfil de MercadoLibre con 100% positivo">
+                    <i class="fas fa-star" aria-hidden="true"></i><span>100% Positivo en ML</span>
                 </a>
             </div>
-            <div class="trust-item"><i class="fas fa-industry"></i><span>Industria Argentina</span></div>
+            <div class="trust-item"><i class="fas fa-industry" aria-hidden="true"></i><span>Industria Argentina</span></div>
         </div>
     </div>
 
@@ -1064,13 +999,13 @@
                         <div class="product-price">$390.000</div>
                         <small>3 cuotas s/interés de $130.000</small>
                         <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Ideal para reparto ligero y compras</li>
-                            <li><i class="fas fa-check"></i> Estructura perimetral reforzada</li>
-                            <li><i class="fas fa-check"></i> Llantas reforzadas con rodamiento sellado</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Ideal para reparto ligero y compras</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Estructura perimetral reforzada</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Llantas reforzadas con rodamiento sellado</li>
                         </ul>
                     </div>
                     <div class="product-actions">
-                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" class="btn btn-primary">Comprar Directo</a>
+                        <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/" target="_blank" class="btn btn-primary" aria-label="Comprar Urbano Clásico directo en tienda">Comprar Directo</a>
                         <a href="https://www.mercadolibre.com.ar/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/up/MLAU2856190402" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
                     </div>
                 </div>
@@ -1082,9 +1017,9 @@
                         <div class="product-price">$350.000</div>
                         <small>3 cuotas s/interés de $116.667</small>
                         <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Máxima contención de carga</li>
-                            <li><i class="fas fa-check"></i> Alta capacidad para cargas voluminosas</li>
-                            <li><i class="fas fa-check"></i> Malla de acero soldada resistente</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Máxima contención de carga</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Alta capacidad para cargas voluminosas</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Malla de acero soldada resistente</li>
                         </ul>
                     </div>
                     <div class="product-actions">
@@ -1100,9 +1035,9 @@
                         <div class="product-price">$250.000</div>
                         <small>3 cuotas s/interés de $83.333</small>
                         <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Base plana libre para cargas irregulares</li>
-                            <li><i class="fas fa-check"></i> Ideal cargas voluminosas o cajas grandes</li>
-                            <li><i class="fas fa-check"></i> Bajo centro de gravedad</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Base plana libre para cargas irregulares</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Ideal cargas voluminosas o cajas grandes</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Bajo centro de gravedad</li>
                         </ul>
                     </div>
                     <div class="product-actions">
@@ -1119,9 +1054,9 @@
                         <div class="product-price">$350.000</div>
                         <small>3 cuotas s/interés de $116.667</small>
                         <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Diseñado para terrenos blandos y arena</li>
-                            <li><i class="fas fa-check"></i> Adaptado para playa y caminos rurales</li>
-                            <li><i class="fas fa-check"></i> Soportes específicos para cañas y conservadora</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Diseñado para terrenos blandos y arena</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Adaptado para playa y caminos rurales</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Soportes específicos para cañas y conservadora</li>
                         </ul>
                     </div>
                     <div class="product-actions">
@@ -1140,10 +1075,10 @@
                 <p>Simple, rápido y seguro. Elegí el modelo que más te guste y completá tu compra.</p>
             </div>
             <div class="steps-grid">
-                <div class="step-card reveal"><div class="step-number">1</div><h3>Elegí tu modelo</h3><p>Explorá nuestra flota y seleccioná el tráiler que mejor se adapte a tus necesidades.</p></div>
-                <div class="step-card reveal"><div class="step-number">2</div><h3>Pagá como prefieras</h3><p>Mercado Pago, transferencia, tarjetas en cuotas. Todos los medios aceptados.</p></div>
-                <div class="step-card reveal"><div class="step-number">3</div><h3>Recibilo en tu domicilio</h3><p>Enviamos a todo el país con correo privado u OCA. Coordinamos el envío a tu puerta.</p></div>
-                <div class="step-card reveal"><div class="step-number">4</div><h3>Disfrutá tu tráiler</h3><p>Armado sencillo, manual incluido y soporte postventa. ¡A pedalear con carga!</p></div>
+                <div class="step-card reveal"><div class="step-number" aria-hidden="true">1</div><h3>Elegí tu modelo</h3><p>Explorá nuestra flota y seleccioná el tráiler que mejor se adapte a tus necesidades.</p></div>
+                <div class="step-card reveal"><div class="step-number" aria-hidden="true">2</div><h3>Pagá como prefieras</h3><p>Mercado Pago, transferencia, tarjetas en cuotas. Todos los medios aceptados.</p></div>
+                <div class="step-card reveal"><div class="step-number" aria-hidden="true">3</div><h3>Recibilo en tu domicilio</h3><p>Enviamos a todo el país con correo privado u OCA. Coordinamos el envío a tu puerta.</p></div>
+                <div class="step-card reveal"><div class="step-number" aria-hidden="true">4</div><h3>Disfrutá tu tráiler</h3><p>Armado sencillo, manual incluido y soporte postventa. ¡A pedalear con carga!</p></div>
             </div>
         </div>
     </section>
@@ -1190,10 +1125,10 @@
         <div class="container">
             <div class="section-header"><h2>Seguinos en nuestras redes</h2><p>Conocé más sobre EcotrailPilar, novedades, promociones y todo lo que hacemos día a día.</p></div>
             <div class="social-links">
-                <a href="https://www.instagram.com/ecotrailpilar/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
-                <a href="https://www.facebook.com/ecotrailpilar" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
-                <a href="https://www.youtube.com/@ecotrailpilar" target="_blank" class="social-icon"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
-                <a href="https://www.tiktok.com/@ecotrailpilar" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i> <span>TikTok</span></a>
+                <a href="https://www.instagram.com/ecotrailpilar/" target="_blank" class="social-icon" aria-label="Instagram EcotrailPilar"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
+                <a href="https://www.facebook.com/ecotrailpilar" target="_blank" class="social-icon" aria-label="Facebook EcotrailPilar"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
+                <a href="https://www.youtube.com/@ecotrailpilar" target="_blank" class="social-icon" aria-label="YouTube EcotrailPilar"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
+                <a href="https://www.tiktok.com/@ecotrailpilar" target="_blank" class="social-icon" aria-label="TikTok EcotrailPilar"><i class="fab fa-tiktok"></i> <span>TikTok</span></a>
             </div>
         </div>
     </section>
@@ -1206,8 +1141,8 @@
                 <a href="#" class="logo" style="color: white;">Ecotrail<span class="logo-highlight">Pilar</span></a>
                 <p style="margin-top: 1rem;">Fabricación nacional de tráileres para bicicleta. Combinamos ingeniería robusta con versatilidad de usos.</p>
                 <div class="newsletter-box">
-                    <input type="email" placeholder="Tu email para ofertas" aria-label="Email para newsletter">
-                    <button class="btn" style="background: var(--accent); color: var(--primary);">Enviar</button>
+                    <input type="email" placeholder="Tu email para ofertas" aria-label="Email para newsletter" id="newsletterEmail">
+                    <button class="btn" id="newsletterBtn" style="background: var(--accent); color: var(--primary);" aria-label="Suscribirse al newsletter">Enviar</button>
                 </div>
             </div>
             <div class="footer-col">
@@ -1221,9 +1156,9 @@
             </div>
             <div class="footer-col">
                 <h4>Contacto Directo</h4>
-                <p><i class="fab fa-whatsapp"></i> +54 9 11 5948-4880</p>
-                <p><i class="fas fa-location-dot"></i> Pilar, Buenos Aires, Argentina</p>
-                <a href="https://ecotrail.mitiendanube.com" target="_blank" class="btn btn-outline" style="border-color: #334155; color: white; margin-top: 0.5rem;">Tienda Oficial</a>
+                <p><i class="fab fa-whatsapp" aria-hidden="true"></i> +54 9 11 5948-4880</p>
+                <p><i class="fas fa-location-dot" aria-hidden="true"></i> Pilar, Buenos Aires, Argentina</p>
+                <a href="https://ecotrail.mitiendanube.com" target="_blank" class="btn btn-outline" style="border-color: #334155; color: white; margin-top: 0.5rem;" aria-label="Tienda oficial EcotrailPilar">Tienda Oficial</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1232,69 +1167,140 @@
     </div>
 </footer>
 
-<a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" class="fab-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" class="fab-wa" aria-label="Chatear por WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
 <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            const expanded = menuToggle.getAttribute('aria-expanded') === 'true' ? false : true;
-            menuToggle.setAttribute('aria-expanded', expanded);
-            navLinks.classList.toggle('open');
-        });
+    (function() {
+        "use strict";
+        // Año actual
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Elementos del DOM
+        const header = document.getElementById('mainHeader');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.getElementById('primaryNav');
+        const overlay = document.getElementById('mobileOverlay');
+        const backToTopBtn = document.getElementById('backToTop');
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-links a');
+        const revealElements = document.querySelectorAll('.reveal');
+        const newsletterBtn = document.getElementById('newsletterBtn');
+        const newsletterInput = document.getElementById('newsletterEmail');
+
+        // --- Menú móvil mejorado (overlay + escape + cierre automático) ---
+        function openMenu() {
+            navLinks.classList.add('open');
+            overlay.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.setAttribute('aria-label', 'Cerrar menú');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            navLinks.classList.remove('open');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Abrir menú');
+            document.body.style.overflow = '';
+        }
+        function toggleMenu() {
+            navLinks.classList.contains('open') ? closeMenu() : openMenu();
+        }
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', toggleMenu);
+        }
+        overlay.addEventListener('click', closeMenu);
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                menuToggle.setAttribute('aria-expanded', 'false');
+                closeMenu();
             });
         });
-    }
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) backToTopBtn.classList.add('visible');
-        else backToTopBtn.classList.remove('visible');
-    });
-    backToTopBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.nav-links a');
-    function highlightNav() {
-        let scrollPos = window.scrollY + 100;
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-                const currentId = section.getAttribute('id');
-                navItems.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentId}`) {
-                        link.classList.add('active');
-                        link.setAttribute('aria-current', 'page');
-                    } else link.removeAttribute('aria-current');
-                });
+
+        // Tecla Escape cierra menú
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                closeMenu();
             }
         });
-    }
-    window.addEventListener('scroll', highlightNav);
-    window.addEventListener('load', highlightNav);
-    
-    // Intersection Observer mejorado con retraso escalonado
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
+
+        // --- Header compacto al hacer scroll ---
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+            // Botón back to top
+            backToTopBtn.classList.toggle('visible', window.scrollY > 400);
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    revealElements.forEach(el => observer.observe(el));
+
+        // --- Resaltado de navegación (aria-current) ---
+        function highlightNav() {
+            let scrollPos = window.scrollY + 100;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                    const currentId = section.getAttribute('id');
+                    navItems.forEach(link => {
+                        link.classList.remove('active');
+                        link.removeAttribute('aria-current');
+                        if (link.getAttribute('href') === `#${currentId}`) {
+                            link.classList.add('active');
+                            link.setAttribute('aria-current', 'page');
+                        }
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', highlightNav);
+        window.addEventListener('load', highlightNav);
+        
+        // Asegurar que el primer enlace tenga aria-current al inicio (modelos visible)
+        setTimeout(highlightNav, 100);
+
+        // --- Validación simple del newsletter ---
+        if (newsletterBtn && newsletterInput) {
+            newsletterBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = newsletterInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email) {
+                    alert('Por favor, ingresá tu dirección de email.');
+                    newsletterInput.focus();
+                } else if (!emailRegex.test(email)) {
+                    alert('Ingresá un email válido (ejemplo@dominio.com).');
+                    newsletterInput.focus();
+                } else {
+                    alert('¡Gracias por suscribirte! Pronto recibirás nuestras novedades.');
+                    newsletterInput.value = '';
+                }
+            });
+        }
+
+        // --- Botón volver arriba suave ---
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Intersection Observer para animaciones reveal ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => observer.observe(el));
+
+        // Ajuste para que el header sticky no tape anclas (scroll-padding ya lo maneja)
+    })();
 </script>
+
+<!-- Schema.org mejorado: FAQPage + productos con brand, sku, shippingDetails -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1336,6 +1342,8 @@
       {
         "@type": "Product",
         "name": "Trailer Urbano Clásico EcotrailPilar",
+        "sku": "ETP-URB-CLA",
+        "brand": { "@type": "Brand", "name": "EcotrailPilar" },
         "image": "https://ecotrailpilar.com.ar/assets/images/urbano.webp",
         "description": "Ideal para reparto y compras. Enganche universal.",
         "offers": {
@@ -1343,12 +1351,20 @@
           "price": "390000",
           "priceCurrency": "ARS",
           "availability": "https://schema.org/InStock",
-          "url": "https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/"
+          "url": "https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-clasico-refozado-ecotrailpilar/",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "ARS" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "AR" }
+          }
         }
       },
       {
         "@type": "Product",
         "name": "Trailer Utilitario Enrejado EcotrailPilar",
+        "sku": "ETP-ENR",
+        "brand": { "@type": "Brand", "name": "EcotrailPilar" },
         "image": "https://ecotrailpilar.com.ar/assets/images/utilitario.webp",
         "description": "Máxima contención de carga, ideal para volúmenes grandes.",
         "offers": {
@@ -1362,6 +1378,8 @@
       {
         "@type": "Product",
         "name": "Trailer Playo XL EcotrailPilar",
+        "sku": "ETP-PLAY",
+        "brand": { "@type": "Brand", "name": "EcotrailPilar" },
         "image": "https://ecotrailpilar.com.ar/assets/images/playo.webp",
         "description": "Base plana para cargas irregulares y gran volumen.",
         "offers": {
@@ -1375,6 +1393,8 @@
       {
         "@type": "Product",
         "name": "Trailer Pescador EcotrailPilar",
+        "sku": "ETP-PESCA",
+        "brand": { "@type": "Brand", "name": "EcotrailPilar" },
         "image": "https://ecotrailpilar.com.ar/assets/images/pescador.webp",
         "description": "Diseñado para arena y terrenos blandos, con soportes para pesca.",
         "offers": {
@@ -1387,6 +1407,54 @@
       }
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿El enganche sirve para cualquier bicicleta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, nuestro sistema de enganche universal desarrollado por EcotrailPilar es compatible con casi todas las bicicletas, incluyendo rodados 29\", mountain bike, urbanas y eléctricas. Incluye adaptador para diferentes ejes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Para qué usos puedo aprovechar mi EcotrailPilar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nuestros tráileres están diseñados para una enorme variedad de usos: reparto de mercadería, compras del supermercado, mudanzas urbanas, camping, pesca deportiva, paseos con niños o mascotas, y cualquier actividad que requiera transporte ecológico y eficiente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hacen envíos al interior del país?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Totalmente. Despachamos a toda Argentina mediante correo privado y OCA. Podés calcular costo y tiempo en nuestro catálogo de TiendaNube o MercadoLibre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los tráileres vienen armados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se entregan semi-armados con instrucciones claras. El armado es muy sencillo y no requiere herramientas especiales. Podés ver tutoriales en nuestro canal de YouTube."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué garantía tienen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Todos nuestros tráileres cuentan con 12 meses de garantía contra defectos de fabricación. Además, disponemos de repuestos originales para que tu equipo esté siempre operativo."
+      }
+    }
+  ]
 }
 </script>
 </body>
