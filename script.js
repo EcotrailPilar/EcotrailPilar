@@ -1,6 +1,28 @@
 (function() {
-    // Año actual en el footer
+    // Año actual
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ---------- TEMA CLARO/OSCURO ----------
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    
+    const savedTheme = localStorage.getItem('ecotrail-theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
+    } else {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem('ecotrail-theme', currentTheme);
+        });
+    }
 
     // Header scroll
     const header = document.getElementById('mainHeader');
@@ -88,7 +110,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ---------- CONTADOR PROMO URBANO PLAYO (3 días restantes) ----------
+    // ---------- CONTADOR PROMO URBANO PLAYO (3 días) ----------
     function startPromoCountdown() {
         const daysEl = document.getElementById('promoDays');
         const hoursEl = document.getElementById('promoHours');
@@ -97,7 +119,6 @@
         
         if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
-        // Fecha objetivo: 3 días a partir de ahora (finaliza a las 23:59:59 del tercer día)
         const targetDate = new Date();
         targetDate.setDate(targetDate.getDate() + 3);
         targetDate.setHours(23, 59, 59, 999);
@@ -127,7 +148,6 @@
 
         updateTimer();
         const timerInterval = setInterval(updateTimer, 1000);
-        // Limpieza opcional al salir de la página
         window.addEventListener('beforeunload', () => clearInterval(timerInterval));
     }
 
