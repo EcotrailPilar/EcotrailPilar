@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- TÍTULO Y META DESCRIPTION OPTIMIZADOS -->
     <title>Tráileres para Bicicleta Reforzados | EcotrailPilar | Envío Gratis Argentina</title>
-    <meta name="description" content="Tráileres para bicicleta de carga, reforzados y 100% industria argentina. Ideales para reparto, camping, pesca y mudanzas. Enganche universal. ¡Precios desde $250.000 y envío gratis a todo el país!">
+    <meta name="description" content="Tráileres para bicicleta de carga, reforzados y 100% industria argentina. Ideales para reparto, camping, pesca y mudanzas. Enganche universal. ¡Precios desde $190.000 y envío gratis a todo el país!">
     <meta name="keywords" content="tráileres para bicicleta, reforzados, envío gratis Argentina, carga, industria argentina, EcotrailPilar, trailer bicicleta, remolque bici">
     <meta name="author" content="EcotrailPilar">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -18,7 +18,7 @@
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="Tráileres para Bicicleta Reforzados | EcotrailPilar | Envío Gratis Argentina">
-    <meta property="og:description" content="Tráileres para bicicleta de carga, reforzados y 100% industria argentina. Ideales para reparto, camping, pesca y mudanzas. Enganche universal. ¡Precios desde $250.000 y envío gratis a todo el país!">
+    <meta property="og:description" content="Tráileres para bicicleta de carga, reforzados y 100% industria argentina. Ideales para reparto, camping, pesca y mudanzas. Enganche universal. ¡Precios desde $190.000 y envío gratis a todo el país!">
     <meta property="og:image" content="assets/images/tetp.webp">
     <meta property="og:url" content="https://ecotrailpilar.com/">
     <meta property="og:site_name" content="EcotrailPilar">
@@ -36,7 +36,7 @@
     <link rel="preload" as="image" href="assets/images/tetp.webp" fetchpriority="high">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Hoja de estilos principal (sin cambios) -->
+    <!-- Hoja de estilos externa -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -49,7 +49,7 @@
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
-            <!-- ENLACES INTERNOS CON TEXTOS ORIGINALES (cambiados según solicitud) -->
+            <!-- ENLACES INTERNOS -->
             <nav class="nav-links" id="primaryNav" aria-label="Navegación principal">
                 <a href="#modelos">Modelos EcotrailPilar</a>
                 <a href="#comparativa">Comparativa</a>
@@ -62,7 +62,7 @@
     </header>
 
     <main id="main-content">
-        <!-- HERO -->
+        <!-- HERO (sin cambios) -->
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-text">
@@ -186,16 +186,36 @@
                             <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar,%20me%20interesa%20el%20modelo%20UTILITARIO%20ENREJADO%20(%24350.000).%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20info?" target="_blank" class="btn-wa-small"><i class="fab fa-whatsapp"></i> Consultar por este modelo</a>
                         </div>
                     </div>
-                    <!-- Producto 3: Urbano Playo -->
-                    <div class="product-card reveal">
+                    <!-- Producto 3: Urbano Playo (PROMO MEJORADA) -->
+                    <div class="product-card reveal promo-card">
+                        <!-- Banner de promoción destacado -->
+                        <div class="promo-banner">
+                            <span class="promo-banner-text"><i class="fas fa-bolt"></i> ¡OFERTA RELÁMPAGO! <i class="fas fa-bolt"></i></span>
+                        </div>
+                        <span class="badge-promo badge-promo-large">🔥 -24% 🔥</span>
                         <div class="product-img">
                             <img src="assets/images/playo.webp" alt="Tráiler bicicleta Urbano Playo base plana para mudanzas y cajas grandes" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3>Urbano Playo</h3>
-                            <div class="product-price">$250.000</div>
-                            <div class="cuotas"><i class="fas fa-credit-card"></i> 3 cuotas sin interés de $83.333</div>
+                            <div class="product-price">$190.000</div>
+                            <div class="cuotas"><i class="fas fa-credit-card"></i> 3 cuotas sin interés de $63.333</div>
                             <div class="shipping-badge"><i class="fas fa-truck"></i> Envío GRATIS</div>
+                            
+                            <!-- CONTADOR MEJORADO TIPO FLIP CLOCK -->
+                            <div class="promo-countdown-container">
+                                <p class="promo-countdown-title"><i class="far fa-clock"></i> ¡APROVECHÁ! LA OFERTA TERMINA EN:</p>
+                                <div class="countdown-flip" id="playoCountdown">
+                                    <div class="countdown-item"><span class="countdown-number" id="promoDays">03</span><span class="countdown-label">Días</span></div>
+                                    <div class="countdown-separator">:</div>
+                                    <div class="countdown-item"><span class="countdown-number" id="promoHours">00</span><span class="countdown-label">Horas</span></div>
+                                    <div class="countdown-separator">:</div>
+                                    <div class="countdown-item"><span class="countdown-number" id="promoMinutes">00</span><span class="countdown-label">Min</span></div>
+                                    <div class="countdown-separator">:</div>
+                                    <div class="countdown-item"><span class="countdown-number" id="promoSeconds">00</span><span class="countdown-label">Seg</span></div>
+                                </div>
+                            </div>
+                            
                             <ul class="product-specs">
                                 <li><i class="fas fa-check"></i> Base plana libre para cargas irregulares</li>
                                 <li><i class="fas fa-check"></i> Ideal cargas voluminosas o cajas grandes</li>
@@ -204,9 +224,9 @@
                             </ul>
                         </div>
                         <div class="product-actions">
-                            <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" class="btn btn-primary">Comprar Directo</a>
+                            <a href="https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/" target="_blank" class="btn btn-primary promo-btn">¡COMPRAR AHORA!</a>
                             <a href="https://www.mercadolibre.com.ar/trailer-carrito-de-carga-urbano-para-bicicleta-reforzado/up/MLAU3384860215" target="_blank" class="btn btn-ml"><i class="fab fa-mercadopago"></i> Ver en ML</a>
-                            <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar,%20me%20interesa%20el%20modelo%20URBANO%20PLAYO%20(%24250.000).%20%C2%BFPodr%C3%ADan%20asesorarme?" target="_blank" class="btn-wa-small"><i class="fab fa-whatsapp"></i> Consultar por este modelo</a>
+                            <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar,%20me%20interesa%20el%20modelo%20URBANO%20PLAYO%20(%24190.000).%20%C2%BFPodr%C3%ADan%20asesorarme?" target="_blank" class="btn-wa-small"><i class="fab fa-whatsapp"></i> Consultar por este modelo</a>
                         </div>
                     </div>
                     <!-- Producto 4: Pescador -->
@@ -274,7 +294,7 @@
                         <tbody>
                             <tr><td class="model-name">Urbano Clásico</td><td>80 kg</td><td>12 kg</td><td>Reparto, compras diarias</td><td>$320.000</td><td>GRATIS</td></tr>
                             <tr><td class="model-name">Utilitario Enrejado</td><td>80 kg</td><td>14 kg</td><td>Cargas voluminosas, herramientas</td><td>$350.000</td><td>GRATIS</td></tr>
-                            <tr><td class="model-name">Urbano Playo</td><td>80 kg</td><td>11 kg</td><td>Mudanzas, cajas grandes</td><td>$250.000</td><td>GRATIS</td></tr>
+                            <tr><td class="model-name">Urbano Playo</td><td>80 kg</td><td>11 kg</td><td>Mudanzas, cajas grandes</td><td><span style="color:#b91c1c; font-weight:800;">$190.000</span> <span style="background:#fee2e2; padding:2px 6px; border-radius:20px; font-size:0.7rem;">PROMO</span></td><td>GRATIS</td></tr>
                             <tr><td class="model-name">Pescador</td><td>70 kg</td><td>13 kg</td><td>Pesca, playa, terrenos blandos</td><td>$290.000</td><td>GRATIS</td></tr>
                             <tr><td class="model-name">Clásico Reforzado</td><td>80 kg</td><td>12 kg</td><td>Trabajo intensivo, herramientas, diario</td><td>$320.000</td><td>GRATIS</td></tr>
                         </tbody>
@@ -413,7 +433,7 @@
     <a href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20vi%20sus%20tr%C3%A1ileres%20para%20bicicleta%20y%20quisiera%20consultar%20por%20un%20modelo." target="_blank" class="fab-wa" aria-label="Chatear por WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
-    <!-- DATOS ESTRUCTURADOS (SCHEMA.ORG) ACTUALIZADOS -->
+    <!-- DATOS ESTRUCTURADOS (SCHEMA.ORG) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -483,11 +503,11 @@
         "@type": "Product",
         "name": "EcotrailPilar Urbano Playo",
         "image": "https://ecotrailpilar.com/assets/images/playo.webp",
-        "description": "Base plana para cargas irregulares, bajo centro de gravedad.",
+        "description": "Base plana para cargas irregulares, bajo centro de gravedad. Precio promocional.",
         "brand": { "@type": "Brand", "name": "EcotrailPilar" },
         "offers": {
           "@type": "Offer",
-          "price": "250000",
+          "price": "190000",
           "priceCurrency": "ARS",
           "availability": "https://schema.org/InStock",
           "url": "https://ecotrail.mitiendanube.com/productos/trailer-para-bicicleta-urbano-playo-reforzado-ecotrail-pilar/",
@@ -541,7 +561,7 @@
     ]
     </script>
 
-    <!-- JavaScript principal (sin cambios) -->
+    <!-- Archivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>
