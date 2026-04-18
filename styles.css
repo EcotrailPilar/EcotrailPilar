@@ -215,3 +215,22 @@ footer { background: linear-gradient(105deg, #0a0f1c 0%, var(--primary) 100%); c
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
 .brand-highlight { background: linear-gradient(125deg, var(--accent), #ffb347); background-clip: text; -webkit-background-clip: text; color: transparent; font-weight: 800; }
 .cta-post-table { text-align: center; margin-top: 2rem; }
+.badge-promo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #dc2626; /* rojo intenso */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.3rem 0.9rem;
+    border-radius: 60px;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(220,38,38,0.3);
+    animation: pulse-promo 1.5s infinite;
+}
+@keyframes pulse-promo {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; transform: scale(1.02); }
+    100% { opacity: 1; }
+}
