@@ -1,6 +1,8 @@
 (function() {
+    // Año actual en el footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+    // Header scroll
     const header = document.getElementById('mainHeader');
     let lastScroll = 0;
     let isMobile = window.innerWidth <= 768;
@@ -54,6 +56,7 @@
         if (e.key === 'Escape' && navLinks.classList.contains('open')) closeMenu();
     });
 
+    // Navegación activa por scroll
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-links a');
     const observer = new IntersectionObserver((entries) => {
@@ -73,13 +76,60 @@
     }, { threshold: 0.4, rootMargin: '-80px 0px 0px 0px' });
     sections.forEach(section => observer.observe(section));
 
+    // Botón "Volver arriba"
     document.getElementById('backToTop').addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // Reveal on scroll
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ---------- CONTADOR PROMO URBANO PLAYO (3 días restantes) ----------
+    function startPromoCountdown() {
+        const daysEl = document.getElementById('promoDays');
+        const hoursEl = document.getElementById('promoHours');
+        const minutesEl = document.getElementById('promoMinutes');
+        const secondsEl = document.getElementById('promoSeconds');
+        
+        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+        // Fecha objetivo: 3 días a partir de ahora (finaliza a las 23:59:59 del tercer día)
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 3);
+        targetDate.setHours(23, 59, 59, 999);
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                secondsEl.textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (86400000)) / (3600000));
+            const minutes = Math.floor((distance % 3600000) / 60000);
+            const seconds = Math.floor((distance % 60000) / 1000);
+
+            daysEl.textContent = days.toString().padStart(2, '0');
+            hoursEl.textContent = hours.toString().padStart(2, '0');
+            minutesEl.textContent = minutes.toString().padStart(2, '0');
+            secondsEl.textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
+        // Limpieza opcional al salir de la página
+        window.addEventListener('beforeunload', () => clearInterval(timerInterval));
+    }
+
+    startPromoCountdown();
 })();
