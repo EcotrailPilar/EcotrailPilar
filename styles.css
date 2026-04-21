@@ -224,17 +224,25 @@ header.header-hidden { transform: translateY(-100%); }
 header.scrolled { padding: 0.4rem 0; background: var(--bg-header); }
 @media (max-width: 768px) { header { padding: 0.5rem 0; } header.header-hidden { transform: none; } }
 .header-content { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+
+/* ----- LOGO COMO IMAGEN ----- */
 .logo {
-  font-size: 1.75rem;
-  font-weight: 900;
+  display: inline-block;
+  line-height: 0;
   text-decoration: none;
-  background: var(--logo-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  white-space: nowrap;
 }
-@media (max-width: 480px) { .logo { font-size: 1.4rem; } }
+.logo img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+  /* Ajuste opcional para móviles */
+  max-height: 45px;
+}
+@media (max-width: 480px) {
+  .logo img { max-height: 38px; }
+}
+
 .nav-links { display: flex; gap: 2rem; font-weight: 600; }
 .nav-links a {
   color: var(--nav-link-color);
