@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones | EcotrailPilar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <header id="mainHeader">
+        <div class="container header-content">
+            <a href="/" class="logo"><img src="assets/images/logo.webp" alt="EcotrailPilar" width="180" height="40"></a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="/" class="btn btn-outline" style="margin-left:auto;">Volver</a>
+        </div>
+    </header>
+
+    <main style="padding: 4rem 1rem; max-width: 800px; margin: auto; color: var(--text-primary);">
+        <h1>Términos y Condiciones de Venta</h1>
+        <p style="margin:1rem 0;">Los precios publicados corresponden a pesos argentinos e incluyen IVA cuando corresponda. La compra se formaliza mediante la tienda online, MercadoLibre o por pedido directo. Todos los productos cuentan con 12 meses de garantía de fábrica contra defectos de fabricación. Nos reservamos el derecho de modificar precios sin previo aviso, pero respetando los valores vigentes al momento de la compra confirmada.</p>
+        <p>El cliente acepta que las imágenes son ilustrativas y pueden tener ligeras variaciones respecto al producto final. El envío es gratis a todo el territorio argentino. Los cambios o devoluciones se rigen por la política de devolución publicada en este sitio.</p>
+        <p>Para cualquier reclamo de garantía, el cliente deberá contactarse por WhatsApp al +54 9 11 5948 4880 y proporcionar fotos del defecto. La empresa evaluará el caso y, de corresponder, coordinará la reparación o cambio sin costo.</p>
+    </main>
+
+    <footer style="text-align:center; padding:2rem; background:var(--footer-bg); color:white;">
+        <p>&copy; <span id="currentYear"></span> EcotrailPilar</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('ecotrail-theme');
+        if (savedTheme === 'light') { body.classList.add('light-mode'); body.classList.remove('dark-mode'); }
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                body.classList.toggle('dark-mode');
+                localStorage.setItem('ecotrail-theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+            });
+        }
+    </script>
+</body>
+</html>

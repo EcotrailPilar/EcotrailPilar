@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | EcotrailPilar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <header id="mainHeader">
+        <div class="container header-content">
+            <a href="/" class="logo"><img src="assets/images/logo.webp" alt="EcotrailPilar" width="180" height="40"></a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="/" class="btn btn-outline" style="margin-left:auto;">Volver</a>
+        </div>
+    </header>
+
+    <main style="padding: 4rem 1rem; max-width: 800px; margin: auto; color: var(--text-primary);">
+        <h1>Política de Privacidad</h1>
+        <p style="margin:1rem 0;">En EcotrailPilar (en adelante “la empresa”), respetamos tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tus datos personales cuando utilizás nuestro sitio web o te comunicás con nosotros.</p>
+        <h3>1. Datos que recopilamos</h3>
+        <p>Al realizar una consulta vía WhatsApp o formulario de contacto, podemos almacenar nombre, número de teléfono, correo electrónico y cualquier otro dato que nos proporciones voluntariamente.</p>
+        <h3>2. Finalidad del tratamiento</h3>
+        <p>Los datos se utilizan exclusivamente para responder a tu consulta, gestionar ventas, enviar información solicitada y mejorar nuestros servicios comerciales. No compartimos datos con terceros sin consentimiento.</p>
+        <h3>3. Conservación</h3>
+        <p>Guardamos tus datos durante el tiempo necesario para cumplir con las finalidades mencionadas y conforme a las obligaciones legales vigentes.</p>
+        <h3>4. Tus derechos</h3>
+        <p>Podés solicitar el acceso, rectificación o supresión de tus datos enviando un mensaje a <a href="mailto:cmvmicrologistica@gmail.com">cmvmicrologistica@gmail.com</a> o por WhatsApp al +54 9 11 5948 4880.</p>
+        <p style="margin-top:2rem;">Fecha de última actualización: abril 2026.</p>
+    </main>
+
+    <footer style="text-align:center; padding:2rem; background:var(--footer-bg); color:white;">
+        <p>&copy; <span id="currentYear"></span> EcotrailPilar</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('ecotrail-theme');
+        if (savedTheme === 'light') { body.classList.add('light-mode'); body.classList.remove('dark-mode'); }
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                body.classList.toggle('dark-mode');
+                localStorage.setItem('ecotrail-theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+            });
+        }
+    </script>
+</body>
+</html>

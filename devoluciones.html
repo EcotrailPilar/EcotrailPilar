@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cambios y Devoluciones | EcotrailPilar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <header id="mainHeader">
+        <div class="container header-content">
+            <a href="/" class="logo"><img src="assets/images/logo.webp" alt="EcotrailPilar" width="180" height="40"></a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="/" class="btn btn-outline" style="margin-left:auto;">Volver</a>
+        </div>
+    </header>
+
+    <main style="padding: 4rem 1rem; max-width: 800px; margin: auto; color: var(--text-primary);">
+        <h1>Política de Cambios y Devoluciones</h1>
+        <p style="margin:1rem 0;">Queremos que estés 100% satisfecho con tu EcotrailPilar. Si no es así, podés solicitar un <strong>cambio por otro modelo</strong> dentro de los 10 días corridos desde que recibiste el producto.</p>
+        <h3>Condiciones</h3>
+        <ul>
+            <li>El producto debe estar sin uso, en su embalaje original y con todos los accesorios.</li>
+            <li>El costo del envío de devolución corre por cuenta del comprador, excepto si el cambio se debe a un defecto de fábrica cubierto por la garantía.</li>
+            <li>Una vez recibido el producto, coordinaremos el envío del nuevo modelo elegido. Si hay diferencia de precio, se abonará o acreditará la misma.</li>
+        </ul>
+        <h3>Productos con defectos de fabricación</h3>
+        <p>Si detectás un problema de fabricación, comunicate con nosotros por WhatsApp al +54 9 11 5948 4880. Te pediremos fotos del defecto y, si corresponde, nos haremos cargo del retiro y del envío de la reparación o cambio sin costo adicional.</p>
+        <p>Para iniciar cualquier trámite, escribinos a <a href="mailto:cmvmicrologistica@gmail.com">cmvmicrologistica@gmail.com</a> o por WhatsApp.</p>
+    </main>
+
+    <footer style="text-align:center; padding:2rem; background:var(--footer-bg); color:white;">
+        <p>&copy; <span id="currentYear"></span> EcotrailPilar</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('ecotrail-theme');
+        if (savedTheme === 'light') { body.classList.add('light-mode'); body.classList.remove('dark-mode'); }
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                body.classList.toggle('dark-mode');
+                localStorage.setItem('ecotrail-theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+            });
+        }
+    </script>
+</body>
+</html>
