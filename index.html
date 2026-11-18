@@ -9,6 +9,8 @@
         gtag('js', new Date());
         gtag('config', 'G-WB73V3SQ96');
     </script>
+    <!-- PROMOS por tiempo limitado: todo lo marcado con data-promo se ve solo hasta PROMO_FIN (hora Argentina) y se oculta solo al vencer. -->
+    <script>window.PROMO_FIN='2026-11-22T23:59:59-03:00';if(Date.now()<Date.parse(window.PROMO_FIN))document.documentElement.classList.add('promo-on');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Trailer para Bicicleta Reforzado | EcotrailPilar | Industria Argentina</title>
@@ -34,7 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="assets/images/tetp.webp" fetchpriority="high">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261118">
 </head>
 <body>
     <a href="#modelos" class="skip-link">Saltar a los modelos</a>
@@ -71,6 +73,7 @@
                     <h1><span class="hero-tag">Trailers para bicicleta · 100% Industria Argentina</span>Convertí tu bici en un <em>utilitario de carga.</em></h1>
                     <p class="hero-sub">Tráileres reforzados, fabricados y soldados en Pilar. Para reparto urbano, pesca, camping y mudanzas. Sin patente, sin nafta, sin seguro.</p>
                     <div class="hero-strip">
+                        <a class="pill pill--promo" href="#promos" data-promo><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 11.6l-9-9A2 2 0 0011 2H4a2 2 0 00-2 2v7c0 .6.2 1.1.6 1.4l9 9a2 2 0 002.8 0l7-7a2 2 0 000-2.8zM6.5 8A1.5 1.5 0 116.5 5a1.5 1.5 0 010 3z"/></svg> 30% OFF en 2 modelos · hasta el domingo</a>
                         <span class="pill pill--free">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h13v10H3z" opacity=".0"/><path d="M16 8h3l3 3v3h-2a2 2 0 11-4 0H10a2 2 0 11-4 0H4V6a2 2 0 012-2h10v4zm0 2v2h4l-2-2h-2zM8 14a1 1 0 100 2 1 1 0 000-2zm10 0a1 1 0 100 2 1 1 0 000-2z"/></svg>
                             Envío gratis CABA y GBA
@@ -108,6 +111,63 @@
             </div>
         </section>
 
+        <!-- PROMOS POR TIEMPO LIMITADO: visible solo hasta PROMO_FIN (ver <head>); al vencer se oculta sola -->
+        <section id="promos" class="section promos" data-promo aria-labelledby="promos-titulo">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Promo por tiempo limitado</span>
+                    <h2 id="promos-titulo">30% OFF en el Clásico y el Urbano Playo</h2>
+                    <p>Despacho sin demora. Reservá el tuyo por WhatsApp y te queda el precio de promo.</p>
+                    <p class="promo-clock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Hasta el domingo 22/11 a las 23:59 <span data-countdown></span></p>
+                </div>
+                <div class="promo-grid">
+                    <article class="card promo-card">
+                        <div class="tag-top tag-promo">−30%</div>
+                        <a class="card-img" href="/trailer-bicicleta-modelo-clasico.html"><img srcset="assets/images/clasico-800.webp 800w, assets/images/clasico.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" src="assets/images/clasico.webp" alt="Tráiler bicicleta Modelo Clásico EcotrailPilar con 30% OFF" loading="lazy" width="400" height="300"></a>
+                        <div class="card-body">
+                            <div class="card-use">Trabajo diario · el más vendido</div>
+                            <h3><a href="/trailer-bicicleta-modelo-clasico.html">Modelo Clásico</a></h3>
+                            <div class="promo-price"><s>$504.000</s><b>$352.800</b><span class="promo-save">Ahorrás $151.200</span></div>
+                            <ul class="card-specs">
+                                <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Caja de 80×60×30 cm · chasis reforzado 20×20 mm</li>
+                                <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 80 kg de carga · ruedas 20" selladas</li>
+                                <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Despacho sin demora</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a class="btn btn--wa" data-promo-cta="clasico_home" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20quiero%20reservar%20el%20MODELO%20CL%C3%81SICO%20con%2030%25%20OFF%20%28%24352.800%29%20que%20vi%20en%20la%20web.">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.736-.979z"/></svg>
+                                    Reservar por WhatsApp
+                                </a>
+                                <a class="link-buy" href="/trailer-bicicleta-modelo-clasico.html">Ver ficha completa →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card promo-card">
+                        <div class="tag-top tag-promo">−30%</div>
+                        <a class="card-img" href="/trailer-bicicleta-urbano-playo.html"><img srcset="assets/images/playo-800.webp 800w, assets/images/playo.webp 1280w" sizes="(max-width: 700px) 92vw, 420px" src="assets/images/playo.webp" alt="Tráiler bicicleta Urbano Playo EcotrailPilar con 30% OFF" loading="lazy" width="400" height="300"></a>
+                        <div class="card-body">
+                            <div class="card-use">Base plana · cargas grandes</div>
+                            <h3><a href="/trailer-bicicleta-urbano-playo.html">Urbano Playo</a></h3>
+                            <div class="promo-price"><s>$387.000</s><b>$270.900</b><span class="promo-save">Ahorrás $116.100</span></div>
+                            <ul class="card-specs">
+                                <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Base plana libre para cargas irregulares</li>
+                                <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Centro de gravedad ultra bajo · 80 kg</li>
+                                <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Despacho sin demora</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a class="btn btn--wa" data-promo-cta="playo_home" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20quiero%20reservar%20el%20URBANO%20PLAYO%20con%2030%25%20OFF%20%28%24270.900%29%20que%20vi%20en%20la%20web.">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.736-.979z"/></svg>
+                                    Reservar por WhatsApp
+                                </a>
+                                <a class="link-buy" href="/trailer-bicicleta-urbano-playo.html">Ver ficha completa →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <p class="promo-fine">Promo válida del 18/11 al 22/11/2026 a las 23:59 (hora Argentina). Precio de promo con pago solo por transferencia; el envío se cotiza aparte según tu zona.</p>
+            </div>
+        </section>
+
         <!-- MODELOS -->
         <section id="modelos" class="section section--alt">
             <div class="container">
@@ -122,18 +182,24 @@
                     <!-- Clásico (best seller, va primero) -->
                     <article class="card reveal">
                         <div class="tag-top tag-best">★ El más vendido</div>
+                        <a class="tag-top tag-promo tag-top--right" href="#promos" data-promo>−30% promo</a>
                         <div class="card-img"><img srcset="assets/images/clasico-800.webp 800w, assets/images/clasico.webp 1600w" sizes="(max-width: 700px) 92vw, 380px" src="assets/images/clasico.webp" alt="Tráiler bicicleta Modelo Clásico EcotrailPilar" loading="lazy" width="400" height="300"></div>
                         <div class="card-body">
                             <div class="card-use">Trabajo diario</div>
                             <h3><a href="/trailer-bicicleta-modelo-clasico.html">Modelo Clásico</a></h3>
-                            <div class="card-price">$504.000</div>
+                            <div class="card-price promo-off">$504.000</div>
+                            <div class="promo-price" data-promo><s>$504.000</s><b>$352.800</b></div>
                             <ul class="card-specs">
                                 <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> El original, el más probado y perfeccionado</li>
                                 <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Chasis reforzado 20×20 mm para uso intensivo</li>
                                 <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 80×60×30 cm · ruedas 20" selladas</li>
                             </ul>
                             <div class="card-actions">
-                                <a class="btn btn--wa" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20me%20interesa%20el%20MODELO%20CL%C3%81SICO%20(%24504.000).%20%C2%BFMe%20asesoran%3F">
+                                <a class="btn btn--wa" data-promo data-promo-cta="clasico_card" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20quiero%20reservar%20el%20MODELO%20CL%C3%81SICO%20con%2030%25%20OFF%20%28%24352.800%29%20que%20vi%20en%20la%20web.">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.736-.979z"/></svg>
+                                    Reservar con 30% OFF
+                                </a>
+                                <a class="btn btn--wa promo-off" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20me%20interesa%20el%20MODELO%20CL%C3%81SICO%20(%24504.000).%20%C2%BFMe%20asesoran%3F">
                                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.736-.979z"/></svg>
                                     Consultar por WhatsApp
                                 </a>
@@ -188,18 +254,24 @@
 
                     <!-- Urbano Playo -->
                     <article class="card reveal">
+                        <a class="tag-top tag-promo tag-top--right" href="#promos" data-promo>−30% promo</a>
                         <div class="card-img"><img srcset="assets/images/playo-800.webp 800w, assets/images/playo.webp 1280w" sizes="(max-width: 700px) 92vw, 380px" src="assets/images/playo.webp" alt="Tráiler bicicleta Urbano Playo base plana para mudanzas y cajas grandes" loading="lazy" width="400" height="300"></div>
                         <div class="card-body">
                             <div class="card-use">Inicio económico</div>
                             <h3><a href="/trailer-bicicleta-urbano-playo.html">Urbano Playo</a></h3>
-                            <div class="card-price">$387.000</div>
+                            <div class="card-price promo-off">$387.000</div>
+                            <div class="promo-price" data-promo><s>$387.000</s><b>$270.900</b></div>
                             <ul class="card-specs">
                                 <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Base plana libre para cargas irregulares</li>
                                 <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Centro de gravedad ultra bajo</li>
                                 <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Ideal para cajas grandes y mudanzas</li>
                             </ul>
                             <div class="card-actions">
-                                <a class="btn btn--wa" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20me%20interesa%20el%20URBANO%20PLAYO%20(%24387.000).%20%C2%BFMe%20asesoran%3F">
+                                <a class="btn btn--wa" data-promo data-promo-cta="playo_card" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20quiero%20reservar%20el%20URBANO%20PLAYO%20con%2030%25%20OFF%20%28%24270.900%29%20que%20vi%20en%20la%20web.">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.736-.979z"/></svg>
+                                    Reservar con 30% OFF
+                                </a>
+                                <a class="btn btn--wa promo-off" target="_blank" rel="noopener" href="https://wa.me/5491159484880?text=Hola%20EcotrailPilar%2C%20me%20interesa%20el%20URBANO%20PLAYO%20(%24387.000).%20%C2%BFMe%20asesoran%3F">
                                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.736-.979z"/></svg>
                                     Consultar por WhatsApp
                                 </a>
@@ -396,6 +468,6 @@
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://ecotrailpilar.com/#website", "name": "EcotrailPilar", "alternateName": ["Ecotrail Pilar"], "url": "https://ecotrailpilar.com/", "inLanguage": "es-AR", "publisher": {"@id": "https://ecotrailpilar.com/#business"}}</script>
     <script type="application/ld+json">[{"@context": "https://schema.org/", "@type": "Product", "@id": "https://ecotrailpilar.com/trailer-bicicleta-modelo-clasico.html#product", "name": "EcotrailPilar Modelo Clásico", "sku": "ECOTRAIL-CLASICO", "image": "https://ecotrailpilar.com/assets/images/clasico.webp", "description": "El trailer para bicicleta más vendido de EcotrailPilar: caja de 80×60×30 cm, chasis reforzado 20×20 mm, ruedas rodado 20 y 80 kg de carga. Fabricado en Pilar. Envío gratis en CABA y GBA.", "url": "https://ecotrailpilar.com/trailer-bicicleta-modelo-clasico.html", "brand": {"@type": "Brand", "name": "EcotrailPilar"}, "itemCondition": "https://schema.org/NewCondition", "offers": {"@type": "Offer", "price": "504000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://ecotrailpilar.com/trailer-bicicleta-modelo-clasico.html"}}, {"@context": "https://schema.org/", "@type": "Product", "@id": "https://ecotrailpilar.com/trailer-bicicleta-urbano-clasico.html#product", "name": "EcotrailPilar Urbano Clásico", "sku": "ECOTRAIL-URBANO-CLASICO", "image": "https://ecotrailpilar.com/assets/images/urbano.webp", "description": "Trailer para bicicleta Urbano Clásico: para reparto liviano y compras diarias. Estructura con refuerzo perimetral, ruedas rodado 20 con rodamiento sellado, 80 kg. Fabricado en Pilar.", "url": "https://ecotrailpilar.com/trailer-bicicleta-urbano-clasico.html", "brand": {"@type": "Brand", "name": "EcotrailPilar"}, "itemCondition": "https://schema.org/NewCondition", "offers": {"@type": "Offer", "price": "450000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://ecotrailpilar.com/trailer-bicicleta-urbano-clasico.html"}}, {"@context": "https://schema.org/", "@type": "Product", "@id": "https://ecotrailpilar.com/trailer-bicicleta-utilitario-enrejado.html#product", "name": "EcotrailPilar Utilitario Enrejado", "sku": "ECOTRAIL-UTILITARIO-ENREJADO", "image": "https://ecotrailpilar.com/assets/images/utilitario.webp", "description": "Trailer para bicicleta con malla de acero soldada para cajas y cargas voluminosas. Chasis reforzado, 80 kg de capacidad y enganche universal. Fabricado en Pilar.", "url": "https://ecotrailpilar.com/trailer-bicicleta-utilitario-enrejado.html", "brand": {"@type": "Brand", "name": "EcotrailPilar"}, "itemCondition": "https://schema.org/NewCondition", "offers": {"@type": "Offer", "price": "549000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://ecotrailpilar.com/trailer-bicicleta-utilitario-enrejado.html"}}, {"@context": "https://schema.org/", "@type": "Product", "@id": "https://ecotrailpilar.com/trailer-bicicleta-urbano-playo.html#product", "name": "EcotrailPilar Urbano Playo", "sku": "ECOTRAIL-URBANO-PLAYO", "image": "https://ecotrailpilar.com/assets/images/playo.webp", "description": "Trailer para bicicleta de base plana para cajas grandes, mudanzas y cargas irregulares. Centro de gravedad bajo, 80 kg y enganche universal. Fabricado en Pilar.", "url": "https://ecotrailpilar.com/trailer-bicicleta-urbano-playo.html", "brand": {"@type": "Brand", "name": "EcotrailPilar"}, "itemCondition": "https://schema.org/NewCondition", "offers": {"@type": "Offer", "price": "387000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://ecotrailpilar.com/trailer-bicicleta-urbano-playo.html"}}, {"@context": "https://schema.org/", "@type": "Product", "@id": "https://ecotrailpilar.com/trailer-bicicleta-pescador.html#product", "name": "EcotrailPilar Modelo Pescador", "sku": "ECOTRAIL-PESCADOR", "image": "https://ecotrailpilar.com/assets/images/pescador.webp", "description": "Trailer para bicicleta para pesca y playa: ruedas anchas de baja presión para arena y terrenos blandos, con soportes para cañas. 80 kg y enganche universal. Fabricado en Pilar.", "url": "https://ecotrailpilar.com/trailer-bicicleta-pescador.html", "brand": {"@type": "Brand", "name": "EcotrailPilar"}, "itemCondition": "https://schema.org/NewCondition", "offers": {"@type": "Offer", "price": "522000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://ecotrailpilar.com/trailer-bicicleta-pescador.html"}}]</script>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20261118" defer></script>
 </body>
 </html>

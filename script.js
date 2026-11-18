@@ -43,6 +43,22 @@
         c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();load();}});
     });
 
+    // Promos por tiempo limitado: cuenta regresiva y ocultado automático al vencer (fecha en window.PROMO_FIN)
+    var fin=Date.parse(window.PROMO_FIN||''), relojes=document.querySelectorAll('[data-countdown]');
+    if(fin && document.documentElement.classList.contains('promo-on')){
+        var tic=function(){
+            var ms=fin-Date.now();
+            if(ms<=0){ document.documentElement.classList.remove('promo-on'); clearInterval(reloj); return; }
+            var d=Math.floor(ms/864e5), h=Math.floor(ms%864e5/36e5), m=Math.floor(ms%36e5/6e4);
+            var txt='quedan '+(d?d+' d ':'')+(d||h?h+' h ':'')+(m<10&&(d||h)?'0':'')+m+' min';
+            relojes.forEach(function(r){ r.textContent=txt; });
+        };
+        var reloj=setInterval(tic,20000); tic();
+    }
+    document.querySelectorAll('[data-promo-cta]').forEach(function(a){a.addEventListener('click',function(){
+        if(typeof gtag==='function') gtag('event','promo_click',{promo:a.getAttribute('data-promo-cta')});
+    });});
+
     // Cookie consent
     var ck=document.getElementById('cookie'), ok=document.getElementById('cookieOk');
     if(ck && ok){
